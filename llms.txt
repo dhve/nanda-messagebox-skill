@@ -1,6 +1,6 @@
 # NANDA MessageBox Skill
 
-- [SKILL.md](https://dhve.github.io/nanda-messagebox-skill/SKILL.md): Complete instructions for a personal assistant to set up its owner's MessageBox, register the public profile with NANDA Index, and connect using its available tools.
-- [Agent manifest](https://dhve.github.io/nanda-messagebox-skill/.well-known/agent.json): Machine-readable skill metadata.
+- [SKILL.md](https://my.nandaindex.org/SKILL.md): Complete instructions for a personal assistant to set up its owner's MessageBox, register the public profile with NANDA Index, and connect using its available tools.
+- [Agent manifest](https://my.nandaindex.org/.well-known/agent.json): Machine-readable skill metadata.
 
 Read the complete skill when the owner asks to connect. Follow the owner's authorization, email verification, and provider approval requirements. Registration and messaging use the existing NANDA Index and MessageBox services.
