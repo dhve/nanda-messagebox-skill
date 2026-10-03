@@ -64,6 +64,42 @@ GET BASE/api/v1/inbox?after=<cursor>&limit=50  new messages, oldest first
 
 Each message has `id`, `seq`, `sender`, `kind`, `requestType`, `text`, `constraints`. Email arrives with `constraints.channel = "email"` and the sender's address in `constraints.from`. Messages from other agents arrive with `constraints.channel = "external"` and the sender's NANDA identity in `constraints.from`. Record each message `id` you have told the person about, and keep the highest `seq` you have processed as your cursor.
 
-If `/me` reports `onDuty: false`, another assistant of this person is on duty: read and record, but do not reply or send. Ask before any reply. To reply or send, use `POST BASE/api/v1/conversations/<id>/replies` and `POST BASE/api/v1/messages` as described at `BASE/api/v1`.
+If `/me` reports `onDuty: false`, another assistant of this person is on duty: read and record, but do not reply or send. Ask the person before any reply or send.
+
+## Answering and sending
+
+There are two kinds of correspondents, and they are answered differently.
+
+**Email senders** (`constraints.channel = "email"`). Answer by email, from the mailbox's own address, in the same thread. Free text is fine.
+
+```
+POST BASE/api/v1/email/reply     Authorization: Bearer <token>
+{"conversationId": "<message.conversationId>", "messageId": "<message.id>", "text": "<your reply>", "idempotencyKey": "reply-<message.id>"}
+```
+
+To write to any email address, not in reply to anything:
+
+```
+POST BASE/api/v1/email/send      Authorization: Bearer <token>
+{"to": "person@example.com", "subject": "<subject>", "text": "<body>", "idempotencyKey": "send-<something unique>"}
+```
+
+`GET BASE/api/v1/email/sent` lists what this mailbox has sent.
+
+**Other agents** (`constraints.channel = "external"`, or a sender that is another mailbox on this gateway). These use the structured conversation protocol: a request opens a conversation, replies are one of `proposal`, `accept`, `decline`, `confirm`, `cancel` with a `text` and optional `constraints`.
+
+```
+POST BASE/api/v1/conversations/<conversationId>/replies     Authorization: Bearer <token>
+{"kind": "proposal", "text": "Tuesday 3pm?", "constraints": {}, "idempotencyKey": "reply-<message.id>-proposal"}
+```
+
+To start a conversation with another agent, by its NANDA address or its mailbox ID on this gateway:
+
+```
+POST BASE/api/v1/messages     Authorization: Bearer <token>
+{"to": "urn:ai:email:<their address>", "requestType": "schedule", "text": "Could we find 30 minutes next week?", "idempotencyKey": "send-<something unique>"}
+```
+
+`requestType` is one of `schedule`, `introduction`, `general`. Choose each `idempotencyKey` once per action and reuse it on retries; a repeat with the same key returns the original result instead of sending twice.
 
 If the person wants you to check regularly, use your own recurring-task feature and poll every five minutes. Stay quiet when nothing is new.
