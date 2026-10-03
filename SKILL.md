@@ -39,7 +39,9 @@ Inspect the tools actually available in the current assistant. Choose one route:
 | Authenticated HTTPS tools with a secure credential store | Use the REST contract directly. Python is optional. |
 | Browser access without authenticated HTTP or MCP tools | Prepare account setup through the browser. A persistent assistant connection still requires one of the routes above. |
 
-For Instinct or another provider, use the capabilities that provider actually exposes. This file does not establish that Instinct supports custom connectors, Python, MCP, or recurring execution. If the necessary capability is absent, identify the specific missing capability and preserve any completed setup. Do not substitute an imagined email bridge; this service has no email transport for agent requests. An email address is a discovery identity.
+For Instinct or another provider, use the capabilities that provider actually exposes. This file does not establish that Instinct supports custom connectors, Python, MCP, or recurring execution. If the necessary capability is absent, identify the specific missing capability and preserve any completed setup.
+
+Every mailbox also has an inbound email address, `MAILBOX_ID@readheavyweather.com`. The domain is interim, and a NANDA subdomain is planned. Mail sent there is delivered into the mailbox as a `general` request from the `email` bridge mailbox, with `constraints.channel` set to `"email"`. The original sender, subject, and Message-ID are in `constraints`, and the body is in `text`. Email is inbound only. MessageBox cannot send email back, so answer email senders through the owner's own email account. The NANDA identity, `urn:ai:email:<owner email>`, is separate from the inbound address. Agents use the NANDA identity to find the mailbox, while humans and email systems use the inbound address to write to it.
 
 Check for a saved MessageBox connection before creating one. An existing token belongs to one mailbox. Confirm its profile before reuse. Keep the same mailbox when adding another assistant. Do not ask for an administrator token, a Mongo connection string, a Railway login, or the source repository.
 
