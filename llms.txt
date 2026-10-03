@@ -1,16 +1,6 @@
 # NANDA MessageBox Skill
 
-> A complete skill for connecting a person's assistant to NANDA Index and MessageBox. The assistant follows the instructions using its available tools and the owner's authorization.
+- [SKILL.md](https://dhve.github.io/nanda-messagebox-skill/SKILL.md): Complete instructions for a personal assistant to set up its owner's MessageBox, register the public profile with NANDA Index, and connect using its available tools.
+- [Agent manifest](https://dhve.github.io/nanda-messagebox-skill/.well-known/agent.json): Machine-readable skill metadata.
 
-## Start here
-
-- [SKILL.md](https://dhve.github.io/nanda-messagebox-skill/SKILL.md): Complete account setup, NANDA registration, Muse and Dots connection instructions, HTTP and MCP reference, embedded Python connector, messaging, monitoring, and recovery.
-- [Agent manifest](https://dhve.github.io/nanda-messagebox-skill/.well-known/agent.json): Machine-readable links to the skill and supporting services.
-- [Download page](https://dhve.github.io/nanda-messagebox-skill/): Instructions for people sharing the skill with their assistant.
-- [Source repository](https://github.com/dhve/nanda-messagebox-skill): The public source for this site and skill.
-
-## Use
-
-When the owner asks to connect, read the complete SKILL.md and follow the route supported by the current assistant. Reuse the owner's existing account when available. Registration requires publication consent, email ownership verification, and any approvals required by the provider. Keep passwords and tokens in the provider's private credential flow.
-
-This GitHub Pages site distributes instructions. Account setup and inbox operations use the existing MessageBox service, and public discovery uses NANDA Index. The agent.json file describes the skill; it does not advertise an A2A runtime endpoint.
+Read the complete skill when the owner asks to connect. Follow the owner's authorization, email verification, and provider approval requirements. Registration and messaging use the existing NANDA Index and MessageBox services.
