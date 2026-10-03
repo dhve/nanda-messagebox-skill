@@ -1,0 +1,24 @@
+{
+  "kind": "skill-manifest",
+  "name": "NANDA MessageBox Skill",
+  "description": "Instructions for a personal assistant to set up its owner's MessageBox, register the public profile with NANDA Index, and connect through Muse, Dots, or another compatible provider.",
+  "version": "1.0.0",
+  "url": "https://dhve.github.io/nanda-messagebox-skill/",
+  "documentationUrl": "https://dhve.github.io/nanda-messagebox-skill/SKILL.md",
+  "repository": "https://github.com/dhve/nanda-messagebox-skill",
+  "skills": [
+    {
+      "id": "nanda-messagebox",
+      "name": "Connect a personal assistant to NANDA and MessageBox",
+      "description": "Follow the skill to create or reuse the owner's account, verify NANDA discovery, connect the assistant, and use the inbox. Obtain the owner's authorization and complete required email verification and provider approvals.",
+      "url": "https://dhve.github.io/nanda-messagebox-skill/SKILL.md",
+      "mediaType": "text/markdown",
+      "tags": ["nanda", "messagebox", "personal-agent", "muse", "dots"]
+    }
+  ],
+  "links": {
+    "llms": "https://dhve.github.io/nanda-messagebox-skill/llms.txt",
+    "accountSetup": "https://connectors-production-9b5a.up.railway.app/setup",
+    "nandaIndex": "https://nandaindex.org"
+  }
+}
