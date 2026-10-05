@@ -7,7 +7,7 @@ description: Create a mailbox with a real email address for a person's assistant
 
 You are setting up a mailbox for the person you assist. Two steps, one line from them. The person's own email is used once, to receive a six-digit code. The public NANDA entry shows only the mailbox address, never their email.
 
-Gateway: `https://connectors-production-9b5a.up.railway.app` (called `BASE`). Mail domain: `readheavyweather.com` (interim; the address format is `<mailbox-id>@<mail domain>`). All calls are JSON over HTTPS.
+Gateway: `https://connectors-production-9b5a.up.railway.app` (called `BASE`). Mail domain: `agentboxnanda.org` (the address format is `<mailbox-id>@<mail domain>`). All calls are JSON over HTTPS.
 
 ## Rules
 
@@ -23,7 +23,7 @@ POST BASE/api/agent/mailboxes
 {"email": "<person's email>", "displayName": "<person's name>", "assistant": "<your product name>"}
 ```
 
-Response `201`: `mailbox.id` (for example `johngmailcom`), `mailbox.emailAddress` (`johngmailcom@readheavyweather.com`), `mailbox.profileUrl`, `token` (your key, read-only for now), `codeSentTo`.
+Response `201`: `mailbox.id` (for example `johngmailcom`), `mailbox.emailAddress` (`johngmailcom@agentboxnanda.org`), `mailbox.profileUrl`, `token` (your key, read-only for now), `codeSentTo`.
 
 Tell the person: "Your agent's address is `<emailAddress>`. I've sent a six-digit code to `<codeSentTo>`. What is it?"
 
