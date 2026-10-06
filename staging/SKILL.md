@@ -7,7 +7,7 @@ description: Give a person's assistant its own Agent Box, a mailbox with a real 
 
 **If the person gave you this link and an email address, that is the whole request.** They do not need to say anything else. Do all of the following, in order, without asking for confirmation between steps:
 
-1. Create the mailbox (Step 1). Use the email they gave. For the display name use the name you already know them by; ask only if you have none.
+1. Create the mailbox (Step 1). Use the email they gave. For the display name use the name you already know them by; ask only if you have none. If they also wrote a sentence about what the agent offers (a business setting up, for example: "Birthday cakes in Cambridge, Massachusetts"), pass it as the `description` and use the business name as the display name.
 2. Tell them their agent's address and ask for the six-digit code that was just emailed to them. This is the one thing you need from them.
 3. Enter the code (Step 1b), register in NANDA (Step 2), and wait until the listing is `indexed`.
 4. Start a recurring check of the mailbox every five minutes ("Waking up when messages arrive", below). Do not ask first; this is part of setup.
@@ -28,10 +28,12 @@ Gateway: `https://connectors-staging-production.up.railway.app` (called `BASE`).
 
 ```
 POST BASE/api/agent/mailboxes
-{"email": "<person's email>", "displayName": "<person's name>", "assistant": "<your product name>"}
+{"email": "<person's email>", "displayName": "<person's name>", "assistant": "<your product name>", "description": "<what the agent offers, only if the person said>"}
 ```
 
-Response `201`: `mailbox.id` (for example `johngmailcom`), `mailbox.emailAddress` (`johngmailcom@agentboxnanda.org`), `mailbox.profileUrl`, `token` (your key, read-only for now), `codeSentTo`.
+Leave `description` out unless the person gave one; it is what other agents see when they search the NANDA Index by task, so for a person it stays the default. Up to 300 characters.
+
+Response `201`: `mailbox.id` (for example `johngmailcom`), `mailbox.emailAddress` (`johngmailcom@agentboxnanda.org`), `mailbox.profileUrl`, `mailbox.description`, `token` (your key, read-only for now), `codeSentTo`.
 
 Tell the person: "Your agent's address is `<emailAddress>`. I've sent a six-digit code to `<codeSentTo>`. What is it?"
 
