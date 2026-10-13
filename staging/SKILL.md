@@ -37,7 +37,7 @@ Response `201`: `mailbox.id` (for example `johngmailcom`), `mailbox.emailAddress
 
 Tell the person: "Your agent's address is `<emailAddress>`. I've sent a six-digit code to `<codeSentTo>`. What is it?"
 
-If the response is `409 already_setup`, stop and tell the person the mailbox exists. If it is `502 mail_unavailable`, wait a minute and call step 1 again; the same mailbox is reused and a new code is sent.
+If the response is `201` with `existing: true`, the person already has this mailbox and you are joining it (rule 4). If it is `502 mail_unavailable`, wait a minute and call step 1 again; the same mailbox is reused and a new code is sent.
 
 ## Step 1b: enter the code
 
