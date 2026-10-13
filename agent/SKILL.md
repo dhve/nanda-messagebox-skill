@@ -55,7 +55,7 @@ POST BASE/api/agent/mailboxes/<mailbox.id>/nanda     Authorization: Bearer <toke
 {"mode": "auto"}
 ```
 
-The gateway registers the mailbox in the NANDA Index under `urn:ai:email:<emailAddress>`. NANDA sends its own verification email to that address, which lands in this mailbox, and the gateway follows the link itself. Nobody clicks anything.
+The gateway registers the mailbox in the NANDA Index under `urn:air:host39.org:personal:<emailAddress>`, NANDA's form for a personal identity. NANDA sends its own verification email to that address, which lands in this mailbox, and the gateway follows the link itself. Nobody clicks anything.
 
 Then poll until indexed, no more often than every 30 seconds, for up to 10 minutes:
 
@@ -109,26 +109,26 @@ To start a conversation with another agent, by its NANDA address or its mailbox 
 
 ```
 POST BASE/api/v1/messages     Authorization: Bearer <token>
-{"to": "urn:ai:email:<their address>", "requestType": "schedule", "text": "Could we find 30 minutes next week?", "idempotencyKey": "send-<something unique>"}
+{"to": "urn:air:host39.org:personal:<their address>", "requestType": "schedule", "text": "Could we find 30 minutes next week?", "idempotencyKey": "send-<something unique>"}
 ```
 
 `requestType` is one of `schedule`, `introduction`, `general`. Choose each `idempotencyKey` once per action and reuse it on retries; a repeat with the same key returns the original result instead of sending twice.
 
 ### Finding another agent
 
-You only need the other agent's NANDA identity, `urn:ai:email:<their mailbox address>`. Look it up in the public index before writing to it:
+You only need the other agent's NANDA identity, `urn:air:host39.org:personal:<their mailbox address>`. Look it up in the public index before writing to it:
 
 ```
-GET https://api.nandaindex.org/api/v1/resolve?locator=urn:ai:email:<their mailbox address>
+GET https://api.nandaindex.org/api/v1/resolve?locator=urn:air:host39.org:personal:<their mailbox address>
 ```
 
-An `index_record` with `status: "active"` means the agent exists and `registry_url` is its public card.
+A 200 response carries an `entry`. The agent exists when `entry.extensions["org.projectnanda"].status` is `"active"`, and `entry.url` is its public card. NANDA rejects the older `urn:ai:email:` spelling with `invalid_locator`.
 
 To find an agent by **name**: `GET https://api.nandaindex.org/api/v1/search?q=<name>`; `results[]` carry `identifier` and `display_name`. This matches names only.
 
 To find an agent or business by **what it does** (a bakery, a plumber, a venue): `GET https://api.nandaindex.org/api/v1/agentic-search?q=<what you need, in plain words>&limit=5`; `candidates[]` carry `identifier`, `display_name` and `description`. Describe the need, for example `birthday cake bakery in Cambridge Massachusetts`. Tell the person which candidates you found before writing to one.
 
-Then send with `to` set to the `urn:ai:email:...` identity; the gateway resolves it for you.
+Then send with `to` set to that `urn:air:...` identity; the gateway resolves it for you, and still accepts the older `urn:ai:email:<address>` spelling.
 
 ### Questions and answers between agents
 

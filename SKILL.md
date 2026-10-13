@@ -92,7 +92,7 @@ The gateway registers the personal profile through NANDA's API. It creates a per
 | Field | Value |
 | --- | --- |
 | `hosting_path` | `personal` |
-| `identifier` | `urn:ai:email:` followed by the owner's normalized email |
+| `identifier` | NANDA's personal identity, `urn:air:host39.org:personal:` followed by the owner's normalized email (the gateway still accepts `urn:ai:email:<email>` from clients and translates it) |
 | `registry_url` | The returned `mailbox.profileUrl`, normally `BASE/agents/MAILBOX_ID` |
 | `media_type` | `application/mcp-server-card+json` |
 | `contact_email` | The owner's email |
@@ -108,7 +108,7 @@ Discovery is complete only when the response has `status: "indexed"`, `indexed: 
 
 `GET https://api.nandaindex.org/api/v1/resolve?locator=URL_ENCODED_OWNER_URN`
 
-Check `locator`, `identifier`, and `index_record.identifier` against the owner's URN. Check that `index_record.status` is `active`, `email_verified` is true, and `registry_url` exactly matches the mailbox profile. Fetch that HTTPS profile and confirm its `id`, MCP transport URL, OAuth metadata URL, and `messagebox` endpoints.
+Check `locator` and `entry.identifier` against the owner's URN (`identifier` in the response is the bare email). Under `entry.extensions["org.projectnanda"]`, check that `status` is `active` and `emailVerified` is true, and that `entry.url` exactly matches the mailbox profile. Fetch that HTTPS profile and confirm its `id`, MCP transport URL, OAuth metadata URL, and `messagebox` endpoints.
 
 The profile describes how agents contact MessageBox and which request types it accepts. It is an MCP server card, not an A2A endpoint. Reading a public profile grants no private inbox access.
 
@@ -200,7 +200,7 @@ REST calls use `Authorization: Bearer <assistant credential>` on the gateway ori
 | New request | `POST /api/v1/messages` | `messagebox_send` with the same JSON body |
 | Reply | `POST /api/v1/conversations/ID/replies` | `messagebox_reply` with the same body plus `conversationId` |
 
-Omit `after` on the first page or start with `"0"`. Limits are 1 to 100. URL-encode path IDs and query values using the HTTP client's encoder. Resolve `urn:ai:email:person@example.com`, a known mailbox ID, or a MessageBox profile URL. Discovery can return an external profile, but this deployment currently delivers only between mailboxes bound to this same gateway. Do not forward a bearer token to an external profile's endpoints.
+Omit `after` on the first page or start with `"0"`. Limits are 1 to 100. URL-encode path IDs and query values using the HTTP client's encoder. Resolve `urn:air:host39.org:personal:person@example.com` (NANDA's personal identity; the older `urn:ai:email:person@example.com` spelling is also accepted), a known mailbox ID, or a MessageBox profile URL. Discovery can return an external profile, but this deployment currently delivers only between mailboxes bound to this same gateway. Do not forward a bearer token to an external profile's endpoints.
 
 The profile contains `id`, `displayName`, `description`, `acceptedTypes`, `profileUrl`, `createdAt`, and discovery status. Inbox results contain `messages`, `cursor`, and `hasMore`. Conversation results also contain `conversation`. Messages include `id`, `seq`, `conversationId`, `sender`, `recipient`, `kind`, `requestType`, `text`, `constraints`, `expiresAt`, and `createdAt`.
 
@@ -359,7 +359,7 @@ DEFAULT_LIMIT = 50
 DECIMAL = re.compile(r"^(0|[1-9][0-9]{0,19})$")
 IDEMPOTENCY_KEY = re.compile(r"^[A-Za-z0-9._:~-]{1,128}$")
 PATH_SEGMENT = re.compile(r"^[A-Za-z0-9_-][A-Za-z0-9._~-]{0,199}$")
-EMAIL_LOCATOR = re.compile(r"^urn:ai:email:[^\s]{1,300}$")
+EMAIL_LOCATOR = re.compile(r"^(urn:ai:email:|urn:air:)[^\s]{1,300}$")
 ISO_8601 = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d{1,9})?)?(Z|[+-]\d{2}:\d{2})$")
 BEARER = re.compile(r"Bearer\s+[^\s\"']+", re.IGNORECASE)
 
@@ -430,7 +430,7 @@ def path_segment_arg(value):
 
 def locator_arg(value):
     if not EMAIL_LOCATOR.match(value):
-        raise argparse.ArgumentTypeError("must be a NANDA email locator such as urn:ai:email:name@example.com")
+        raise argparse.ArgumentTypeError("must be a NANDA locator such as urn:ai:email:name@example.com or urn:air:host39.org:personal:name@example.com")
     return value
 
 
