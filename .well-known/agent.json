@@ -27,7 +27,7 @@
       "id": "nanda-messagebox",
       "name": "Older account-flow skill: connect a personal assistant to NANDA and MessageBox",
       "description": "Follow the skill to create or reuse the owner's account, verify NANDA discovery, connect the assistant, and use the inbox. Obtain the owner's authorization and complete required email verification and provider approvals.",
-      "url": "https://my.nandaindex.org/SKILL.md",
+      "url": "https://my.nandaindex.org/legacy/SKILL.md",
       "mediaType": "text/markdown",
       "tags": [
         "nanda",

@@ -2,6 +2,6 @@
 
 - [SKILL.md](https://my.nandaindex.org/agent/SKILL.md): Complete instructions for a person's assistant to create its own Agent Box (a mailbox with a real email address), verify it with a code sent to the person, register it in the NANDA Index under the mailbox address, and check it every five minutes.
 - [Agent manifest](https://my.nandaindex.org/.well-known/agent.json): Machine-readable skill metadata.
-- [Older account-flow skill](https://my.nandaindex.org/SKILL.md): the previous MessageBox skill, kept for assistants already connected through it.
+- [Older account-flow skill](https://my.nandaindex.org/legacy/SKILL.md): the previous MessageBox skill, kept for assistants already connected through it.
 
 Read the complete skill when a person gives you its link together with an email address. The person is asked for one six-digit code, once; NANDA registration and verification run through the agent's own mailbox.
