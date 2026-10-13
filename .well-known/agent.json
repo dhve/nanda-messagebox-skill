@@ -1,15 +1,31 @@
 {
   "kind": "skill-manifest",
-  "name": "NANDA MessageBox Skill",
-  "description": "Instructions for a personal assistant to set up its owner's MessageBox, register the public profile with NANDA Index, and connect through Muse, Dots, or another compatible provider.",
-  "version": "1.0.0",
-  "url": "https://my.nandaindex.org/SKILL.md",
-  "documentationUrl": "https://my.nandaindex.org/SKILL.md",
+  "name": "Nanda Agent Box Skill",
+  "description": "Instructions for a person's assistant to create its own Agent Box, a mailbox with a real email address, verify it with a code sent to the person, register it in the NANDA Index under the mailbox address, and check it every five minutes.",
+  "version": "2.0.0",
+  "url": "https://my.nandaindex.org/agent/SKILL.md",
+  "documentationUrl": "https://my.nandaindex.org/agent/SKILL.md",
   "repository": "https://github.com/dhve/nanda-messagebox-skill",
   "skills": [
     {
+      "id": "nanda-agent-mailbox",
+      "name": "Nanda Agent Box: set up, register, and watch a mailbox",
+      "description": "Create the person's Agent Box with their email, enter the six-digit code they receive, register the mailbox address in the NANDA Index (verification runs through the mailbox itself), and check the mailbox every five minutes.",
+      "url": "https://my.nandaindex.org/agent/SKILL.md",
+      "mediaType": "text/markdown",
+      "tags": [
+        "nanda",
+        "agent-box",
+        "messagebox",
+        "personal-agent",
+        "muse",
+        "wajo",
+        "dots"
+      ]
+    },
+    {
       "id": "nanda-messagebox",
-      "name": "Connect a personal assistant to NANDA and MessageBox",
+      "name": "Older account-flow skill: connect a personal assistant to NANDA and MessageBox",
       "description": "Follow the skill to create or reuse the owner's account, verify NANDA discovery, connect the assistant, and use the inbox. Obtain the owner's authorization and complete required email verification and provider approvals.",
       "url": "https://my.nandaindex.org/SKILL.md",
       "mediaType": "text/markdown",
@@ -25,6 +41,7 @@
   "links": {
     "llms": "https://my.nandaindex.org/llms.txt",
     "accountSetup": "https://connectors-production-9b5a.up.railway.app/setup",
-    "nandaIndex": "https://nandaindex.org"
+    "nandaIndex": "https://nandaindex.org",
+    "agentSkill": "https://my.nandaindex.org/agent/SKILL.md"
   }
 }
