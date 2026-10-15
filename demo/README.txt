@@ -34,4 +34,4 @@ used by this page.
 This guide follows the NANDA Index frontend theme from projnanda/nanda-index-v2 (commit fa65834d3dc074afbe3fddb8cd30a9eff25ab926). It uses the same Inter font, color tokens, controls, and card styles. Theme and font licenses are included.
 
 Published guide: https://my.nandaindex.org/demo
-The top buttons link to setup instructions, NANDA Index, and Agent Box.
+The top buttons link to SKILL.MD, NANDA Index, and Agent Box.

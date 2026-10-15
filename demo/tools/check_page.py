@@ -36,6 +36,7 @@ PROMPTS = [
     "Reply: Hello back!",
     "Check for replies in my Agent Box.",
 ]
+PUBLIC_ANCHORS = ["prompts", "why", "help"]  # hash links from the earlier published page
 OLD_IDENTITIES = ["Wajo Demo", "Muse Demo", "you+muse", "you+wajo", "October 14, 2026", "screenshots/0"]
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 
@@ -151,6 +152,8 @@ def main() -> int:
     add("FAIL" if dupes else "PASS", "unique ids", ", ".join(dupes) or f"{len(p.ids)} ids")
     missing_anchor = [h for h in p.hrefs if h.startswith("#") and h[1:] not in p.ids]
     add("FAIL" if missing_anchor else "PASS", "in-page links", ", ".join(missing_anchor) or "all targets exist")
+    lost = [a for a in PUBLIC_ANCHORS if a not in p.ids]
+    add("FAIL" if lost else "PASS", "earlier public anchors", ", ".join("#" + a for a in lost) or "#prompts, #why, #help kept")
     add("PASS" if p.header_links == TOP_LINKS and p.navs == 1 else "FAIL", "top links",
         f"{p.header_links}, {p.navs} nav element(s)")
     add("PASS" if p.prompts == PROMPTS else "FAIL", "prompts exact and in order",
