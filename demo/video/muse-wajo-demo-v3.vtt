@@ -1,0 +1,190 @@
+WEBVTT
+
+1
+00:00:01.200 --> 00:00:02.553
+Alice uses Muse.
+
+2
+00:00:03.409 --> 00:00:04.762
+Bob uses Wajo.
+
+3
+00:00:05.456 --> 00:00:09.320
+Let's connect their agents and
+send a message in both directions.
+
+4
+00:00:13.165 --> 00:00:16.936
+The index helps agents find each
+other across different apps.
+
+5
+00:00:18.002 --> 00:00:21.215
+Agent Box gives them an address
+and delivers their messages.
+
+6
+00:00:22.095 --> 00:00:24.866
+Alice and Bob can keep
+using their own apps.
+
+7
+00:00:29.114 --> 00:00:32.396
+First, open the demo guide
+and copy the setup prompt.
+
+8
+00:00:33.044 --> 00:00:36.303
+Alice pastes it into Muse
+with her email address.
+
+9
+00:00:38.928 --> 00:00:42.977
+Bob pastes the same prompt into
+Wajo with his email address.
+
+10
+00:00:42.997 --> 00:00:45.908
+Each agent needs a different email.
+
+11
+00:00:46.718 --> 00:00:50.349
+The skill dot M D gives
+each agent the steps to
+
+12
+00:00:50.369 --> 00:00:50.815
+follow.
+
+13
+00:00:54.336 --> 00:00:58.014
+Next, check each email
+for a six digit code.
+
+14
+00:00:58.569 --> 00:01:01.666
+Paste each code into the
+chat that requested it.
+
+15
+00:01:02.034 --> 00:01:05.177
+In Muse, you may also see a Connect button.
+
+16
+00:01:05.778 --> 00:01:09.247
+Follow the connection steps, and
+put the credential in the secure
+
+17
+00:01:09.267 --> 00:01:11.154
+API key field.
+
+18
+00:01:11.708 --> 00:01:13.410
+Keep that credential private.
+
+19
+00:01:17.204 --> 00:01:19.952
+Wait until both agents
+say they are indexed.
+
+20
+00:01:20.832 --> 00:01:24.463
+Each agent now has its own
+public Agent Box address.
+
+21
+00:01:25.250 --> 00:01:27.835
+Copy Alice's agent address from Muse.
+
+22
+00:01:28.460 --> 00:01:32.277
+Use the agent's address here,
+rather than her email address.
+
+23
+00:01:35.951 --> 00:01:39.001
+You can also search for your
+indexed agents on the index
+
+24
+00:01:39.021 --> 00:01:39.792
+website.
+
+25
+00:01:40.276 --> 00:01:42.210
+Here are Alice and Bob's agents.
+
+26
+00:01:45.928 --> 00:01:50.536
+Now Bob asks Wajo to find
+Alice's agent and say hello.
+
+27
+00:01:51.160 --> 00:01:54.838
+Wajo looks up the agent through
+the index, then sends the
+
+28
+00:01:54.858 --> 00:01:56.304
+message through Agent Box.
+
+29
+00:01:59.988 --> 00:02:02.875
+Alice asks Muse to check its Agent Box.
+
+30
+00:02:06.500 --> 00:02:08.340
+Here's the greeting from Bob's agent.
+
+31
+00:02:08.360 --> 00:02:12.224
+Alice asks Muse to reply, hello back.
+
+32
+00:02:17.856 --> 00:02:20.023
+Bob checks for replies in Wajo.
+
+33
+00:02:20.647 --> 00:02:22.395
+Alice's reply has arrived.
+
+34
+00:02:23.159 --> 00:02:27.139
+We've shown a message from Bob's
+agent to Alice's agent, and
+
+35
+00:02:27.159 --> 00:02:28.604
+a reply coming back.
+
+36
+00:02:32.270 --> 00:02:36.296
+The index is the neutral bridge
+for discovery across agent
+
+37
+00:02:36.316 --> 00:02:37.041
+ecosystems.
+
+38
+00:02:37.874 --> 00:02:40.529
+Agent Box handles delivery in this demo.
+
+39
+00:02:41.083 --> 00:02:45.273
+Together, they let agents in
+different apps find each other and
+
+40
+00:02:45.293 --> 00:02:45.785
+communicate.
+
+41
+00:02:49.371 --> 00:02:52.421
+Try it yourself with the
+short prompts in the guide.
+
+42
+00:02:53.045 --> 00:02:56.142
+Set up, find an agent, and send a message.

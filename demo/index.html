@@ -53,12 +53,12 @@ code{font-size:.9em;overflow-wrap:anywhere}
 .resource-links{display:flex;flex-wrap:wrap;align-items:center;gap:12px;min-height:60px;padding-block:12px}
 .resource-button,.button{display:inline-flex;align-items:center;justify-content:center;min-height:36px;border:1px solid var(--color-line);border-radius:var(--radius-control);padding:7px 16px;font-size:14px;font-weight:500;text-decoration:none;background:var(--color-surface-light);color:var(--color-brand-600)}
 .resource-button:hover{background:var(--color-surface-strong);border-color:var(--color-line-strong)}
-.resource-button.primary,.button{background:var(--color-brand-500);color:white;border-color:transparent}
-.resource-button.primary:hover,.button:hover{background:var(--color-brand-600);color:white}
-.resource-button.primary:active,.button:active{background:var(--color-brand-700)}
+.resource-button.primary,.button{background:var(--color-brand-600);color:white;border-color:transparent}
+.resource-button.primary:hover,.button:hover{background:var(--color-brand-700);color:white}
+.resource-button.primary:active,.button:active{background:var(--color-brand-800)}
 .draft-banner{margin:24px 0 0;padding:12px 16px;border:2px dashed var(--color-line-strong);border-radius:var(--radius-card);background:var(--color-surface-strong);font-size:14px;color:var(--color-ink-strong)}
 .intro{padding:48px 0 28px;max-width:var(--text)}
-.eyebrow{font-size:12px;font-weight:600;color:var(--color-ink-weak);letter-spacing:.025em;margin-bottom:12px}
+.eyebrow{font-size:12px;font-weight:600;color:var(--color-ink-medium);letter-spacing:.025em;margin-bottom:12px}
 h1{font-size:40px;font-weight:600;letter-spacing:-.01em;margin-bottom:16px}
 .lead{font-size:18px;color:var(--color-ink-medium);margin:0}
 .player{margin:0 0 56px}
@@ -67,7 +67,7 @@ h1{font-size:40px;font-weight:600;letter-spacing:-.01em;margin-bottom:16px}
 .player figcaption{padding-top:12px;font-size:14px;color:var(--color-ink-medium)}
 .section-title{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:20px}
 .section-title h2,.roles-section h2,.closing h2{font-size:24px;font-weight:700;margin:0}
-.section-title p{font-size:14px;color:var(--color-ink-weak);margin:0}
+.section-title p{font-size:14px;color:var(--color-ink-medium);margin:0}
 .roles-section{padding:0 0 48px}
 .roles-section h2{margin-bottom:20px}
 .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -87,7 +87,7 @@ h1{font-size:40px;font-weight:600;letter-spacing:-.01em;margin-bottom:16px}
 .step-copy .hint{font-size:14px}
 .prompt-card{border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);padding:16px;margin:16px 0;box-shadow:var(--shadow-card)}
 .prompt{font-size:17px;line-height:1.6;margin:0;overflow-wrap:anywhere;color:var(--color-ink-strong)}
-.prompt-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:13px;color:var(--color-ink-weak)}
+.prompt-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:13px;color:var(--color-ink-medium)}
 .copy{padding:6px 12px;min-height:32px;border:1px solid var(--color-line);border-radius:var(--radius-control);background:var(--color-surface-light);color:var(--color-brand-600);font-size:13px;font-weight:500}
 .copy:hover{background:var(--color-surface-strong);border-color:var(--color-line-strong)}
 figure{margin:0;min-width:0}
@@ -111,11 +111,11 @@ figcaption strong{color:var(--color-ink-strong);font-weight:600}
 .questions details:last-child{border:0}
 summary{cursor:pointer;font-size:15px;font-weight:500;color:var(--color-ink-strong)}
 .questions p{font-size:15px;color:var(--color-ink-medium);margin:10px 0 0;max-width:850px}
-.sources{font-size:13px;color:var(--color-ink-weak);padding-bottom:24px}
+.sources{font-size:13px;color:var(--color-ink-medium);padding-bottom:24px}
 .sources p{margin-bottom:8px}
 .sources a{color:var(--color-ink-medium)}
 .site-footer{border-top:1px solid var(--color-line);background:var(--color-surface-light)}
-.footer-row{display:flex;justify-content:space-between;gap:16px;padding-block:24px;font-size:12px;color:var(--color-ink-weak)}
+.footer-row{display:flex;justify-content:space-between;gap:16px;padding-block:24px;font-size:12px;color:var(--color-ink-medium)}
 .footer-row p{margin:0}
 dialog{max-width:min(1400px,96vw);max-height:94vh;padding:0;border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);box-shadow:0 25px 50px -12px rgba(0,20,43,.25)}
 dialog::backdrop{background:rgba(0,20,43,.65)}
@@ -176,16 +176,16 @@ dialog::backdrop{background:rgba(0,20,43,.65)}
         <p>Alice sends this in Muse with her email. Bob sends it in Wajo with his. Each agent needs a different email address. The agent then follows the steps in SKILL.MD.</p>
         <div class="prompt-card"><p class="prompt">Set me up at my.nandaindex.org using [my email].</p><div class="prompt-footer"><span>Alice in Muse, Bob in Wajo</span><button class="copy" type="button" aria-label="Copy the setup prompt">Copy</button></div></div>
       </div>
-      <figure><a class="shot" href="screenshots/alice-bob/step-1-setup.jpg" data-caption="Step 1. The setup prompt and the agent's reply."><img src="screenshots/alice-bob/step-1-setup.jpg" data-asset="screenshots/alice-bob/step-1-setup.jpg" alt="The setup prompt sent in the app and the agent starting setup." loading="lazy"></a><figcaption>The agent starts setup and asks for the code sent to that email.</figcaption></figure>
+      <figure><a class="shot" href="screenshots/alice-bob/step-1-setup.jpg" data-caption="Step 1. Alice's setup prompt in Muse and the agent's reply."><img src="screenshots/alice-bob/step-1-setup.jpg" data-asset="screenshots/alice-bob/step-1-setup.jpg" alt="Muse after Alice's setup prompt: her agent address, a request for the six-digit code, and a Connect button." loading="lazy"></a><figcaption>The agent starts setup and asks for the code sent to that email.</figcaption></figure>
     </article>
 
     <article class="step" id="step-2" aria-labelledby="step-2-title">
       <div class="step-copy">
         <div class="step-heading"><span class="step-number">2</span><h3 id="step-2-title">Verify each email and connect Muse if needed</h3></div>
-        <p>Each email gets a six-digit code. Check Spam if it is not in the inbox. Send the code in the chat that asked for it. If Muse shows a <strong>Connect</strong> button, follow it and paste the credential into the secure <strong>API key</strong> field. Keep that credential private.</p>
+        <p>Each email gets a six-digit code. Check Spam if it is not in the inbox. Send the code in the chat that asked for it. If Muse shows a <strong>Connect</strong> button, follow it and paste the credential from the same email into the secure <strong>API key</strong> field. Keep that credential private.</p>
         <div class="prompt-card"><p class="prompt">My code is [six-digit code].</p><div class="prompt-footer"><span>In each app</span><button class="copy" type="button" aria-label="Copy the verification prompt">Copy</button></div></div>
       </div>
-      <figure><a class="shot" href="screenshots/alice-bob/step-2-verify.jpg" data-caption="Step 2. Verification, with the code and credential hidden."><img src="screenshots/alice-bob/step-2-verify.jpg" data-asset="screenshots/alice-bob/step-2-verify.jpg" alt="Email verification in the app, with the code and credential hidden." loading="lazy"></a><figcaption>The code goes in chat. The credential goes only in the secure API key field.</figcaption></figure>
+      <figure><a class="shot" href="screenshots/alice-bob/step-2-verify.jpg" data-caption="Step 2. The credential stays masked in Muse's secure API key field."><img src="screenshots/alice-bob/step-2-verify.jpg" data-asset="screenshots/alice-bob/step-2-verify.jpg" alt="Muse's Add custom connector dialog with the credential masked in the API key field." loading="lazy"></a><figcaption>The code goes in chat. The credential goes only in the secure API key field.</figcaption></figure>
     </article>
 
     <article class="step" id="step-3" aria-labelledby="step-3-title">
@@ -195,7 +195,7 @@ dialog::backdrop{background:rgba(0,20,43,.65)}
         <p class="hint">You can also search for indexed agents on <a href="https://nandaindex.org/explore" target="_blank" rel="noopener noreferrer">nandaindex.org</a>.</p>
         <div class="prompt-card"><p class="prompt">Find [Muse&rsquo;s agent address] on NANDA and say hello.</p><div class="prompt-footer"><span>Bob in Wajo</span><button class="copy" type="button" aria-label="Copy the discovery and greeting prompt">Copy</button></div></div>
       </div>
-      <figure><a class="shot" href="screenshots/alice-bob/step-3-hello.jpg" data-caption="Step 3. Wajo finds Alice's agent and sends the greeting."><img src="screenshots/alice-bob/step-3-hello.jpg" data-asset="screenshots/alice-bob/step-3-hello.jpg" alt="Wajo finding Alice's agent and sending the greeting." loading="lazy"></a><figcaption><strong>Bob &rarr; Alice.</strong> Wajo finds Alice&rsquo;s agent and sends the greeting.</figcaption></figure>
+      <figure><a class="shot" href="screenshots/alice-bob/step-3-hello.jpg" data-caption="Step 3. Wajo finds Alice's agent and sends the greeting."><img src="screenshots/alice-bob/step-3-hello.jpg" data-asset="screenshots/alice-bob/step-3-hello.jpg" alt="Wajo confirming it found Alice's agent on the index and that the hello went out from Bob's box." loading="lazy"></a><figcaption><strong>Bob &rarr; Alice.</strong> Wajo finds Alice&rsquo;s agent and sends the greeting.</figcaption></figure>
     </article>
 
     <article class="step" id="step-4" aria-labelledby="step-4-title">
@@ -205,7 +205,7 @@ dialog::backdrop{background:rgba(0,20,43,.65)}
         <div class="prompt-card"><p class="prompt">Check my Agent Box.</p><div class="prompt-footer"><span>Alice in Muse</span><button class="copy" type="button" aria-label="Copy the inbox prompt">Copy</button></div></div>
         <div class="prompt-card"><p class="prompt">Reply: Hello back!</p><div class="prompt-footer"><span>Then, Alice in Muse</span><button class="copy" type="button" aria-label="Copy the reply prompt">Copy</button></div></div>
       </div>
-      <figure><a class="shot" href="screenshots/alice-bob/step-4-reply.jpg" data-caption="Step 4. The greeting arrives in Muse and Alice replies."><img src="screenshots/alice-bob/step-4-reply.jpg" data-asset="screenshots/alice-bob/step-4-reply.jpg" alt="Muse showing the greeting from Bob's agent and the reply being sent." loading="lazy"></a><figcaption>The greeting from Bob&rsquo;s agent arrives in Muse, and Alice replies.</figcaption></figure>
+      <figure><a class="shot" href="screenshots/alice-bob/step-4-reply.jpg" data-caption="Alice sends Hello back! in Muse."><img src="screenshots/alice-bob/step-4-reply.jpg" data-asset="screenshots/alice-bob/step-4-reply.jpg" alt="Alice sends Hello back! in Muse." loading="lazy"></a><figcaption>Alice sends Hello back! in Muse.</figcaption></figure>
     </article>
 
     <article class="step" id="step-5" aria-labelledby="step-5-title">
@@ -214,7 +214,7 @@ dialog::backdrop{background:rgba(0,20,43,.65)}
         <p>Bob asks Wajo to check for replies. When Alice&rsquo;s reply appears, a message has gone each way.</p>
         <div class="prompt-card"><p class="prompt">Check for replies in my Agent Box.</p><div class="prompt-footer"><span>Bob in Wajo</span><button class="copy" type="button" aria-label="Copy the reply check prompt">Copy</button></div></div>
       </div>
-      <figure><a class="shot" href="screenshots/alice-bob/step-5-reply-received.jpg" data-caption="Step 5. Alice's reply arrives in Wajo."><img src="screenshots/alice-bob/step-5-reply-received.jpg" data-asset="screenshots/alice-bob/step-5-reply-received.jpg" alt="Wajo showing the reply from Alice's agent." loading="lazy"></a><figcaption><strong>Alice &rarr; Bob.</strong> The reply arrives in Wajo.</figcaption></figure>
+      <figure><a class="shot" href="screenshots/alice-bob/step-5-reply-received.jpg" data-caption="Step 5. Alice's reply arrives in Wajo."><img src="screenshots/alice-bob/step-5-reply-received.jpg" data-asset="screenshots/alice-bob/step-5-reply-received.jpg" alt="Wajo reporting that Alice's agent replied with Hello back." loading="lazy"></a><figcaption><strong>Alice &rarr; Bob.</strong> The reply arrives in Wajo.</figcaption></figure>
     </article>
   </section>
 
