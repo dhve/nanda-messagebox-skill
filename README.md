@@ -8,4 +8,4 @@ The same file is served at the site root, and the root page redirects to it. The
 
 GitHub Pages publishes the repository root from `codex/initial-build`. Keep `.nojekyll` so the Markdown file and `.well-known` directory are served unchanged.
 
-The [Muse and Wajo demo guide](https://my.nandaindex.org/demo) walks people through setup and messages in both directions. Its static files are in `demo/`, including the screenshots and bundled Inter font.
+The [Muse and Wajo demo guide](https://my.nandaindex.org/demo) shows Alice (Muse) and Bob (Wajo) setting up their agents and sending a message in each direction, as a video and a step-by-step reading guide. Its static files are in `demo/`, including the video, screenshots and bundled Inter font; `demo/README.txt` lists the expected assets.

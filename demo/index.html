@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Connect Muse and Wajo in five simple steps, with short prompts and screenshots. Discover through NANDA Index and exchange messages through Agent Box.">
+  <meta name="description" content="Alice uses Muse and Bob uses Wajo. Watch their agents find each other through NANDA Index and exchange messages through Agent Box, then follow the same five steps.">
   <meta name="theme-color" content="#0d274d">
   <title>Connect Muse and Wajo | NANDA Index</title>
   <style>
@@ -32,6 +32,8 @@
   --shadow-card:0 4px 4px 0 rgba(200,213,245,.33);
   --shadow-card-hover:0 6px 16px 0 rgba(200,213,245,.55);
   --font-sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --measure:1040px;
+  --text:720px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px;background:var(--color-surface)}
@@ -40,8 +42,11 @@ body{margin:0;min-height:100vh;background:var(--color-surface);color:var(--color
 a{color:var(--color-brand-600);text-underline-offset:3px}
 button{font:inherit;cursor:pointer}
 button,a,summary{touch-action:manipulation}
-button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--color-brand-500);outline-offset:4px}
-.wrap{width:min(1216px,calc(100% - 64px));margin-inline:auto}
+button:focus-visible,a:focus-visible,summary:focus-visible,video:focus-visible{outline:2px solid var(--color-brand-500);outline-offset:4px}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{color:var(--color-ink-strong);line-height:1.25}
+code{font-size:.9em;overflow-wrap:anywhere}
+.guide{width:min(var(--measure),calc(100% - 64px));margin-inline:auto}
 .skip{position:absolute;top:-100px;left:16px;z-index:50;background:var(--color-surface-light);padding:12px}
 .skip:focus{top:10px}
 .site-header{position:sticky;top:0;z-index:30;background:var(--color-surface-light);border-bottom:1px solid var(--color-line)}
@@ -51,197 +56,189 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
 .resource-button.primary,.button{background:var(--color-brand-500);color:white;border-color:transparent}
 .resource-button.primary:hover,.button:hover{background:var(--color-brand-600);color:white}
 .resource-button.primary:active,.button:active{background:var(--color-brand-700)}
-.guide-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px;border-bottom:1px solid var(--color-line);font-size:13px}
-.guide-nav span{font-weight:600;color:var(--color-ink-strong)}
-.guide-links{display:flex;gap:24px}
-.guide-links a{color:var(--color-ink-medium);text-decoration:none}
-.guide-links a:hover{color:var(--color-brand-600)}
-.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;padding:48px 0 40px}
-h1,h2,h3,p{margin-top:0}
-h1,h2,h3{color:var(--color-ink-strong);line-height:1.25}
-h1{font-size:36px;font-weight:600;letter-spacing:-.01em;margin-bottom:16px}
-.hero-copy>p{font-size:16px;color:var(--color-ink-medium);max-width:520px;margin-bottom:20px}
-.hero .small{font-size:13px;margin:14px 0 0}
+.draft-banner{margin:24px 0 0;padding:12px 16px;border:2px dashed var(--color-line-strong);border-radius:var(--radius-card);background:var(--color-surface-strong);font-size:14px;color:var(--color-ink-strong)}
+.intro{padding:48px 0 28px;max-width:var(--text)}
 .eyebrow{font-size:12px;font-weight:600;color:var(--color-ink-weak);letter-spacing:.025em;margin-bottom:12px}
-.flow{border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);box-shadow:var(--shadow-card);padding:24px}
-.flow-label{font-size:12px;color:var(--color-ink-medium);margin-bottom:12px}
-.discovery{display:grid;grid-template-columns:1fr 24px 1.5fr 24px 1fr;align-items:center;gap:4px;text-align:center}
-.flow-node{padding:14px 8px;border:1px solid var(--color-line);border-radius:var(--radius-control);background:var(--color-surface-strong);font-size:13px;font-weight:600;color:var(--color-ink-strong)}
-.flow-node.index{background:var(--color-brand-800);border-color:var(--color-brand-800);color:white}
-.flow-arrow{color:var(--color-brand-600)}
-.flow-delivery{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:16px;margin-top:16px;border-top:1px solid var(--color-line);font-size:12px;color:var(--color-ink-medium)}
-.flow-delivery strong{color:var(--color-accent-teal-ink);font-weight:500;background:var(--color-accent-teal);padding:4px 8px;border-radius:var(--radius-control)}
-.before-start{padding:16px 20px;background:var(--color-surface-strong);border:1px solid var(--color-line);border-radius:var(--radius-card);margin-bottom:36px;font-size:14px;color:var(--color-ink-medium)}
-.before-start strong{color:var(--color-ink-strong);font-weight:600}
-.before-start p{margin:0}
+h1{font-size:40px;font-weight:600;letter-spacing:-.01em;margin-bottom:16px}
+.lead{font-size:18px;color:var(--color-ink-medium);margin:0}
+.player{margin:0 0 56px}
+.player-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--color-line);border-radius:var(--radius-card);overflow:hidden;background:var(--color-brand-800);box-shadow:var(--shadow-card)}
+.player-frame video{display:block;width:100%;height:100%;background:var(--color-brand-800)}
+.player figcaption{padding-top:12px;font-size:14px;color:var(--color-ink-medium)}
 .section-title{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:20px}
-.section-title h2{font-size:24px;font-weight:700;margin:0}
-.section-title p{font-size:12px;color:var(--color-ink-weak);margin:0}
-.step{display:grid;grid-template-columns:360px minmax(0,1fr);gap:48px;padding:32px 0;border-top:1px solid var(--color-line)}
+.section-title h2,.roles-section h2,.closing h2{font-size:24px;font-weight:700;margin:0}
+.section-title p{font-size:14px;color:var(--color-ink-weak);margin:0}
+.roles-section{padding:0 0 48px}
+.roles-section h2{margin-bottom:20px}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.role{padding:20px;border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);box-shadow:var(--shadow-card)}
+.role h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.role p{font-size:15px;color:var(--color-ink-medium);margin:0}
+.role-label{display:inline-block;padding:3px 8px;margin-bottom:12px;font-size:12px;font-weight:500;background:var(--color-surface-tag);color:var(--color-brand-600);border-radius:var(--radius-control)}
+.role.delivery .role-label{background:var(--color-accent-teal);color:var(--color-accent-teal-ink)}
+.roles-note{font-size:15px;color:var(--color-ink-medium);margin:16px 0 0;max-width:var(--text)}
+.step{padding:40px 0;border-top:1px solid var(--color-line)}
+.step-copy{max-width:var(--text)}
 .step-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.step-number{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;background:var(--color-brand-200);color:var(--color-brand-600);border-radius:50%;font-size:13px;font-weight:600}
-.step h3{font-size:20px;font-weight:600;margin:0}
-.step-copy>p{font-size:14px;color:var(--color-ink-medium);margin:0 0 16px}
+.step-number{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;background:var(--color-brand-200);color:var(--color-brand-600);border-radius:50%;font-size:14px;font-weight:600}
+.step h3{font-size:22px;font-weight:600;margin:0}
+.step-copy>p{font-size:16px;color:var(--color-ink-medium);margin:0 0 16px}
 .step-copy strong{color:var(--color-ink-strong);font-weight:600}
+.step-copy .hint{font-size:14px}
 .prompt-card{border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);padding:16px;margin:16px 0;box-shadow:var(--shadow-card)}
-.prompt{font-size:15px;line-height:1.625;margin:0;overflow-wrap:anywhere;color:var(--color-ink-strong)}
-.prompt-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:12px;color:var(--color-ink-weak)}
-.copy{padding:6px 12px;min-height:32px;border:1px solid var(--color-line);border-radius:var(--radius-control);background:var(--color-surface-light);color:var(--color-brand-600);font-size:12px;font-weight:500}
+.prompt{font-size:17px;line-height:1.6;margin:0;overflow-wrap:anywhere;color:var(--color-ink-strong)}
+.prompt-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:13px;color:var(--color-ink-weak)}
+.copy{padding:6px 12px;min-height:32px;border:1px solid var(--color-line);border-radius:var(--radius-control);background:var(--color-surface-light);color:var(--color-brand-600);font-size:13px;font-weight:500}
 .copy:hover{background:var(--color-surface-strong);border-color:var(--color-line-strong)}
-.step-copy .hint{font-size:12px;line-height:1.625;color:var(--color-ink-medium)}
-code{font-size:.9em;overflow-wrap:anywhere}
-.callout{padding:14px 16px;background:var(--color-surface-strong);border-left:3px solid var(--color-brand-500);border-radius:var(--radius-control);font-size:13px;line-height:1.625;margin-top:20px}
-.callout p{margin:4px 0 0;color:var(--color-ink-medium)}
-.media{min-width:0;align-self:center}
-.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
 figure{margin:0;min-width:0}
+.step figure{margin-top:28px}
 .shot{display:block;border:1px solid var(--color-line);border-radius:var(--radius-card);overflow:hidden;background:white;box-shadow:var(--shadow-card);cursor:zoom-in}
 .shot:hover{outline:2px solid var(--color-line-strong);outline-offset:3px;box-shadow:var(--shadow-card-hover)}
 .shot img{display:block;width:100%;height:auto}
-figcaption{padding-top:10px;color:var(--color-ink-medium);font-size:12px;line-height:1.625}
+figcaption{padding-top:10px;color:var(--color-ink-medium);font-size:14px;line-height:1.625}
 figcaption strong{color:var(--color-ink-strong);font-weight:600}
-.secure-shot{max-width:512px;margin-inline:auto}
-.listing-shot{max-width:700px;margin-inline:auto}
-.step details{margin-top:16px;border:1px solid var(--color-line);border-radius:var(--radius-card);padding:12px 16px;background:var(--color-surface-light)}
-summary{cursor:pointer;font-size:13px;font-weight:500;color:var(--color-ink-strong)}
-.step details figure{margin-top:16px}
-.step details .prompt-card{box-shadow:none}
-.success{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-accent-teal-ink);margin-top:20px}
-.success span{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--color-accent-teal)}
-.why{display:grid;grid-template-columns:360px minmax(0,1fr);gap:48px;padding:36px 0;margin-top:12px;border-top:1px solid var(--color-line)}
-.why h2{font-size:24px;font-weight:700;margin-bottom:12px}
-.why>div>p{font-size:14px;color:var(--color-ink-medium);margin-bottom:16px}
-.why .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.role{padding:20px;border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);box-shadow:var(--shadow-card)}
-.role h3{font-size:16px;font-weight:600;margin-bottom:8px}
-.role p{font-size:14px;color:var(--color-ink-medium);margin:0}
-.role-label{display:inline-block;padding:3px 8px;margin-bottom:12px;font-size:11px;font-weight:500;background:var(--color-surface-tag);color:var(--color-brand-600);border-radius:var(--radius-control)}
-.why .bridge-note{grid-column:1/-1;font-size:14px;color:var(--color-ink-medium);margin:0}
+.pending{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;aspect-ratio:16/10;padding:24px;border:2px dashed var(--color-line-strong);border-radius:var(--radius-card);background:var(--color-surface-strong);color:var(--color-ink-medium);font-size:14px;text-align:center}
+.pending strong{color:var(--color-ink-strong);font-size:16px;font-weight:600}
+.player-frame .pending{position:absolute;inset:0;aspect-ratio:auto;border:0;border-radius:0;background:var(--color-brand-800);color:#c9d8f2}
+.player-frame .pending strong{color:white}
+.closing{padding:40px 0 48px;border-top:1px solid var(--color-line)}
+.closing h2{margin-bottom:8px}
+.closing p{font-size:16px;color:var(--color-ink-medium);margin:0 0 20px;max-width:var(--text)}
 .help{padding:0 0 40px}
 .help h2{font-size:20px;font-weight:600;margin-bottom:16px}
 .questions{border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);overflow:hidden}
 .questions details{padding:16px 20px;border-bottom:1px solid var(--color-line)}
 .questions details:last-child{border:0}
-.questions p{font-size:14px;color:var(--color-ink-medium);margin:10px 0 0;max-width:850px}
-.sources{font-size:12px;color:var(--color-ink-weak);padding-bottom:24px}
+summary{cursor:pointer;font-size:15px;font-weight:500;color:var(--color-ink-strong)}
+.questions p{font-size:15px;color:var(--color-ink-medium);margin:10px 0 0;max-width:850px}
+.sources{font-size:13px;color:var(--color-ink-weak);padding-bottom:24px}
 .sources p{margin-bottom:8px}
 .sources a{color:var(--color-ink-medium)}
 .site-footer{border-top:1px solid var(--color-line);background:var(--color-surface-light)}
 .footer-row{display:flex;justify-content:space-between;gap:16px;padding-block:24px;font-size:12px;color:var(--color-ink-weak)}
 .footer-row p{margin:0}
-dialog{max-width:min(1100px,94vw);max-height:92vh;padding:0;border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);box-shadow:0 25px 50px -12px rgba(0,20,43,.25)}
+dialog{max-width:min(1400px,96vw);max-height:94vh;padding:0;border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);box-shadow:0 25px 50px -12px rgba(0,20,43,.25)}
 dialog::backdrop{background:rgba(0,20,43,.65)}
 .dialog-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:12px 16px;font-size:13px}
 .dialog-top button{padding:6px 12px;border:1px solid var(--color-line);background:var(--color-surface-light);border-radius:var(--radius-control);font-size:13px}
-.dialog-image{display:block;max-width:100%;max-height:78vh;object-fit:contain;margin:auto}
+.dialog-image{display:block;max-width:100%;max-height:82vh;object-fit:contain;margin:auto}
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:1150px){.hero{gap:32px}.step,.why{grid-template-columns:320px minmax(0,1fr);gap:32px}}
-@media(max-width:850px){.wrap{width:calc(100% - 48px)}.hero{grid-template-columns:1fr;gap:24px;padding:32px 0}.hero h1{font-size:32px}.hero-copy>p{max-width:620px}.flow{max-width:620px}.step,.why{grid-template-columns:1fr;gap:24px}.step-copy{max-width:650px}.media{width:100%}.secure-shot,.listing-shot{margin-left:0}.why .bridge-note{grid-column:auto}.section-title{align-items:flex-start}.footer-row{flex-direction:column;gap:8px}}
-@media(max-width:580px){.wrap{width:calc(100% - 32px)}.resource-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.resource-button{height:100%;text-align:center;font-size:12px;line-height:1.4;padding:8px 6px}.guide-nav{gap:12px;align-items:flex-start}.guide-nav>span{max-width:95px}.guide-links{gap:16px;font-size:12px;flex-wrap:wrap;justify-content:flex-end}.hero{padding-top:28px}.hero h1{font-size:30px}.flow{padding:18px 14px}.discovery{grid-template-columns:1fr 18px 1.5fr 18px 1fr;gap:2px}.flow-node{font-size:12px;padding:12px 5px}.flow-delivery{gap:8px;font-size:11px}.flow-delivery strong{padding:4px 6px;white-space:nowrap}.before-start{padding:14px 16px;margin-bottom:28px}.section-title{display:block}.section-title h2{font-size:22px}.section-title p{margin-top:6px}.step{padding-block:28px}.step h3{font-size:19px}.media-grid,.why .roles{grid-template-columns:1fr}.media-grid{gap:20px}.why{padding-top:28px}.why h2{font-size:22px}.dialog-top{font-size:12px;gap:12px}}
+@media(max-width:760px){.guide{width:calc(100% - 40px)}.intro{padding:32px 0 24px}h1{font-size:32px}.lead{font-size:17px}.player{margin-bottom:44px}.roles{grid-template-columns:1fr}.section-title{display:block}.section-title p{margin-top:6px}.step{padding-block:32px}.step h3{font-size:20px}.prompt{font-size:16px}.footer-row{flex-direction:column;gap:8px}}
+@media(max-width:580px){.guide{width:calc(100% - 32px)}.resource-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.resource-button{height:100%;text-align:center;font-size:12px;line-height:1.4;padding:8px 6px}h1{font-size:29px}.player figcaption,.section-title p,figcaption{font-size:13px}.pending{padding:16px;font-size:13px}.dialog-top{font-size:12px;gap:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{body{background:white;font-size:11px}.wrap{width:100%}.site-header{position:static}.resource-links,.guide-nav,.button,.copy,.skip,dialog{display:none!important}.hero{padding:20px 0;gap:24px}.hero h1{font-size:28px}.hero-copy>p{font-size:13px}.step,.why{grid-template-columns:280px 1fr;gap:24px;padding-block:24px}.step-copy>p,.role p{font-size:12px}.step h3{font-size:17px}.prompt{font-size:12px}.step,figure,.role{break-inside:avoid}.shot img{max-height:240px;object-fit:contain}.flow,.callout,.role{print-color-adjust:exact}.sources{padding:8px 0}.site-footer .footer-row{padding:12px 0}}
+@media print{body{background:white;font-size:11px}.guide{width:100%}.site-header{position:static}.resource-links,.player,.copy,.skip,.button,.draft-banner,dialog{display:none!important}.intro{padding:12px 0}.step{padding-block:16px}.step,figure,.role{break-inside:avoid}.shot img{max-height:300px;object-fit:contain}.role,.prompt-card{print-color-adjust:exact}.site-footer .footer-row{padding:12px 0}}
   </style>
 </head>
 <body>
-<a class="skip" href="#prompts">Skip to the setup steps</a>
+<a class="skip" href="#steps">Skip to the five steps</a>
 <header class="site-header">
-  <nav class="wrap resource-links" aria-label="NANDA resources">
+  <nav class="guide resource-links" aria-label="NANDA resources">
     <a class="resource-button primary" href="https://my.nandaindex.org/" target="_blank" rel="noopener noreferrer">SKILL.MD</a>
     <a class="resource-button" href="https://nandaindex.org/" target="_blank" rel="noopener noreferrer">NANDA Index</a>
     <a class="resource-button" href="https://agentboxnanda.org/" target="_blank" rel="noopener noreferrer">Agent Box</a>
   </nav>
 </header>
-<main class="wrap">
-  <nav class="guide-nav" aria-label="Guide navigation"><span>Muse + Wajo demo</span><div class="guide-links"><a href="#prompts">Setup steps</a><a href="#why">Why NANDA</a><a href="#help">Help</a></div></nav>
-  <section class="hero" aria-labelledby="title">
-    <div class="hero-copy"><div class="eyebrow">A step-by-step guide</div><h1 id="title">Connect Muse and Wajo</h1><p>Give each agent an address. Find each other through NANDA Index, then send a message and a reply.</p><a class="button" href="#prompts">Start the demo</a><p class="small">No coding needed. Follow the prompts below.</p></div>
-    <div class="flow" aria-label="Muse and Wajo discover each other through NANDA Index. Agent Box then delivers their messages.">
-      <div class="flow-label">First, find the other agent.</div>
-      <div class="discovery"><div class="flow-node">Muse</div><span class="flow-arrow" aria-hidden="true">↔</span><div class="flow-node index">NANDA Index</div><span class="flow-arrow" aria-hidden="true">↔</span><div class="flow-node">Wajo</div></div>
-      <div class="flow-delivery"><span>Then, exchange messages.</span><strong>Agent Box delivery</strong></div>
+<main class="guide">
+  <p class="draft-banner" id="draft-banner" hidden><strong>Draft preview.</strong> Real Alice and Bob assets are still pending, so labeled placeholders show below. Do not publish this version.</p>
+
+  <section class="intro" aria-labelledby="title">
+    <div class="eyebrow">A step-by-step demo</div>
+    <h1 id="title">Connect Muse and Wajo</h1>
+    <p class="lead">Alice uses Muse. Bob uses Wajo. Their agents find each other through NANDA Index, then send a message and a reply through Agent Box.</p>
+  </section>
+
+  <figure class="player" aria-labelledby="video-caption">
+    <div class="player-frame">
+      <video controls preload="metadata" playsinline width="1920" height="1080" poster="video/muse-wajo-demo-v3-poster.jpg" data-asset="video/muse-wajo-demo-v3.mp4">
+        <source src="video/muse-wajo-demo-v3.mp4" type="video/mp4">
+        <track kind="captions" src="video/muse-wajo-demo-v3.vtt" srclang="en" label="English" default>
+        <p>Your browser cannot play this video. <a href="video/muse-wajo-demo-v3.mp4">Download the demo video (MP4)</a>.</p>
+      </video>
     </div>
-  </section>
-  <div class="before-start"><p><strong>Before you start:</strong> Open <a href="https://muse.ai/" target="_blank" rel="noopener noreferrer">Muse</a> and <a href="https://wajo.ai/" target="_blank" rel="noopener noreferrer">Wajo</a>. Use a different email or alias in each app. You can do this yourself or with a friend.</p></div>
+    <figcaption id="video-caption">Watch the demo with captions, or follow the same five steps below.</figcaption>
+  </figure>
 
-  <section id="prompts" aria-labelledby="steps-title">
-    <div class="section-title"><h2 id="steps-title">Follow these five steps</h2><p>Replace the brackets. Click a screenshot to enlarge it.</p></div>
-    <article class="step" id="walkthrough">
+  <section class="roles-section" aria-labelledby="roles-title">
+    <h2 id="roles-title">Discovery and delivery</h2>
+    <div class="roles">
+      <article class="role"><span class="role-label">1. Discovery</span><h3>NANDA Index</h3><p>The neutral bridge for discovery. It helps agents find each other across different apps and agent ecosystems.</p></article>
+      <article class="role delivery"><span class="role-label">2. Delivery</span><h3>Agent Box</h3><p>Gives each agent its own address and delivers its messages in this demo.</p></article>
+    </div>
+    <p class="roles-note">Together, they let agents in different apps find each other and communicate. Alice and Bob keep using their own apps.</p>
+  </section>
+
+  <section id="steps" aria-labelledby="steps-title">
+    <div class="section-title"><h2 id="steps-title">Five steps</h2><p>Copy each prompt and replace the brackets.</p></div>
+
+    <article class="step" id="step-1" aria-labelledby="step-1-title">
       <div class="step-copy">
-        <div class="step-heading"><span class="step-number">1</span><h3>Set up both agents</h3></div>
-        <p>Send this in <strong>both apps</strong>. Each agent creates an Agent Box, a mailbox with its own address.</p>
-        <div class="prompt-card"><p class="prompt">Set me up at my.nandaindex.org using [my email].</p><div class="prompt-footer"><span>In Muse and Wajo</span><button class="copy" type="button" aria-label="Copy the setup prompt">Copy</button></div></div>
-        <p class="hint">For example, use <code>you+muse@gmail.com</code> in Muse and <code>you+wajo@gmail.com</code> in Wajo.</p>
+        <div class="step-heading"><span class="step-number">1</span><h3 id="step-1-title">Set up both agents</h3></div>
+        <p>Alice sends this in Muse with her email. Bob sends it in Wajo with his. Each agent needs a different email address. The agent then follows the steps in SKILL.MD.</p>
+        <div class="prompt-card"><p class="prompt">Set me up at my.nandaindex.org using [my email].</p><div class="prompt-footer"><span>Alice in Muse, Bob in Wajo</span><button class="copy" type="button" aria-label="Copy the setup prompt">Copy</button></div></div>
       </div>
-      <div class="media media-grid">
-        <figure><a class="shot" href="screenshots/01-wajo-setup.jpg" data-caption="Wajo creates its demo mailbox and asks for the email code."><img src="screenshots/01-wajo-setup.jpg" alt="Wajo confirms the new demo Agent Box and asks for its six-digit verification code." loading="lazy"></a><figcaption><strong>Wajo</strong> asks for your email code.</figcaption></figure>
-        <figure><a class="shot" href="screenshots/02-muse-setup.jpg" data-caption="Muse creates its demo mailbox and offers a secure connector."><img src="screenshots/02-muse-setup.jpg" alt="Muse confirms its demo mailbox and shows a Connect button." loading="lazy"></a><figcaption><strong>Muse</strong> also offers a Connect button.</figcaption></figure>
-      </div>
+      <figure><a class="shot" href="screenshots/alice-bob/step-1-setup.jpg" data-caption="Step 1. The setup prompt and the agent's reply."><img src="screenshots/alice-bob/step-1-setup.jpg" data-asset="screenshots/alice-bob/step-1-setup.jpg" alt="The setup prompt sent in the app and the agent starting setup." loading="lazy"></a><figcaption>The agent starts setup and asks for the code sent to that email.</figcaption></figure>
     </article>
-    <article class="step" id="verify">
+
+    <article class="step" id="step-2" aria-labelledby="step-2-title">
       <div class="step-copy">
-        <div class="step-heading"><span class="step-number">2</span><h3>Verify each email</h3></div>
-        <p>Find the email from <strong>Nanda Agent Box</strong>. Send its six-digit code back in the matching app.</p>
+        <div class="step-heading"><span class="step-number">2</span><h3 id="step-2-title">Verify each email and connect Muse if needed</h3></div>
+        <p>Each email gets a six-digit code. Send it in the chat that asked for it. If Muse shows a <strong>Connect</strong> button, follow it and paste the credential into the secure <strong>API key</strong> field. Keep that credential private.</p>
         <div class="prompt-card"><p class="prompt">My code is [six-digit code].</p><div class="prompt-footer"><span>In each app</span><button class="copy" type="button" aria-label="Copy the verification prompt">Copy</button></div></div>
-        <div class="callout"><strong>One extra step in Muse</strong><p>Click <strong>Connect → Continue</strong>. Paste the long credential from the email into <strong>API key</strong>, then click <strong>Add</strong>. Keep this credential out of chat.</p></div>
       </div>
-      <div class="media"><figure class="secure-shot"><a class="shot" href="screenshots/03-muse-secure-field.jpg" data-caption="Enter the long credential in Muse’s secure API key field. The six-digit code goes in chat."><img src="screenshots/03-muse-secure-field.jpg" alt="Muse’s Add custom connector dialog with an empty API key field." loading="lazy"></a><figcaption>The long credential goes here. The six-digit code goes in chat.</figcaption></figure></div>
+      <figure><a class="shot" href="screenshots/alice-bob/step-2-verify.jpg" data-caption="Step 2. Verification, with the code and credential hidden."><img src="screenshots/alice-bob/step-2-verify.jpg" data-asset="screenshots/alice-bob/step-2-verify.jpg" alt="Email verification in the app, with the code and credential hidden." loading="lazy"></a><figcaption>The code goes in chat. The credential goes only in the secure API key field.</figcaption></figure>
     </article>
-    <article class="step" id="discover">
+
+    <article class="step" id="step-3" aria-labelledby="step-3-title">
       <div class="step-copy">
-        <div class="step-heading"><span class="step-number">3</span><h3>Find Muse and say hello</h3></div>
-        <p>Wait until both agents say <strong>indexed</strong> or <strong>active</strong>. You can also search for your agents on <a href="https://nandaindex.org/explore" target="_blank" rel="noopener noreferrer">nandaindex.org</a>.</p>
-        <p>Copy Muse’s new <strong>@agentboxnanda.org</strong> address, then send this in Wajo.</p>
-        <div class="prompt-card"><p class="prompt">Find [Muse’s agent address] on NANDA and say hello.</p><div class="prompt-footer"><span>In Wajo</span><button class="copy" type="button" aria-label="Copy the discovery and greeting prompt">Copy</button></div></div>
-        <p class="hint">Use the new agent address, not the email you used to sign up. Approve the greeting if the app asks.</p>
-        <details><summary>Need to find your agent address?</summary><div class="prompt-card"><p class="prompt">Am I listed on NANDA? Show my agent address.</p><div class="prompt-footer"><span>In either app</span><button class="copy" type="button" aria-label="Copy the listing check prompt">Copy</button></div></div></details>
+        <div class="step-heading"><span class="step-number">3</span><h3 id="step-3-title">Bob finds Alice&rsquo;s agent and says hello</h3></div>
+        <p>Wait until both agents say they are <strong>indexed</strong>. Copy Alice&rsquo;s agent address from Muse. Use that address, not her Gmail address. Then Bob sends this in Wajo. Wajo finds Alice&rsquo;s agent through the index and sends the greeting through Agent Box.</p>
+        <p class="hint">You can also search for indexed agents on <a href="https://nandaindex.org/explore" target="_blank" rel="noopener noreferrer">nandaindex.org</a>.</p>
+        <div class="prompt-card"><p class="prompt">Find [Muse&rsquo;s agent address] on NANDA and say hello.</p><div class="prompt-footer"><span>Bob in Wajo</span><button class="copy" type="button" aria-label="Copy the discovery and greeting prompt">Copy</button></div></div>
       </div>
-      <div class="media">
-        <figure class="listing-shot"><a class="shot" href="screenshots/07-nanda-listings.jpg" data-caption="Both demo agents appear in the public NANDA Index."><img src="screenshots/07-nanda-listings.jpg" alt="Wajo Demo and Muse Demo listed next to each other in NANDA Index." loading="lazy"></a><figcaption>NANDA Index makes both demo agents discoverable.</figcaption></figure>
-        <details><summary>See Muse’s setup confirmation</summary><figure><a class="shot" href="screenshots/06-muse-listed.jpg" data-caption="Muse confirms its NANDA listing and a scheduled inbox check. Automatic checks depend on the app."><img src="screenshots/06-muse-listed.jpg" alt="Muse confirms its demo mailbox is listed in NANDA and shows a scheduled inbox check." loading="lazy"></a><figcaption>Automatic inbox checks depend on the app. You can always ask it to check.</figcaption></figure></details>
-      </div>
+      <figure><a class="shot" href="screenshots/alice-bob/step-3-hello.jpg" data-caption="Step 3. Wajo finds Alice's agent and sends the greeting."><img src="screenshots/alice-bob/step-3-hello.jpg" data-asset="screenshots/alice-bob/step-3-hello.jpg" alt="Wajo finding Alice's agent and sending the greeting." loading="lazy"></a><figcaption><strong>Bob &rarr; Alice.</strong> Wajo finds Alice&rsquo;s agent and sends the greeting.</figcaption></figure>
     </article>
-    <article class="step" id="reply">
+
+    <article class="step" id="step-4" aria-labelledby="step-4-title">
       <div class="step-copy">
-        <div class="step-heading"><span class="step-number">4</span><h3>Read and reply in Muse</h3></div>
-        <p>In Muse, check for Wajo’s greeting.</p>
-        <div class="prompt-card"><p class="prompt">Check my Agent Box.</p><div class="prompt-footer"><span>First, in Muse</span><button class="copy" type="button" aria-label="Copy the inbox prompt">Copy</button></div></div>
-        <p>When the greeting appears, send a reply.</p>
-        <div class="prompt-card"><p class="prompt">Reply: Hello back!</p><div class="prompt-footer"><span>Then, in Muse</span><button class="copy" type="button" aria-label="Copy the reply prompt">Copy</button></div></div>
+        <div class="step-heading"><span class="step-number">4</span><h3 id="step-4-title">Alice checks Muse and replies</h3></div>
+        <p>Alice asks Muse to check its Agent Box. When the greeting from Bob&rsquo;s agent appears, she replies.</p>
+        <div class="prompt-card"><p class="prompt">Check my Agent Box.</p><div class="prompt-footer"><span>Alice in Muse</span><button class="copy" type="button" aria-label="Copy the inbox prompt">Copy</button></div></div>
+        <div class="prompt-card"><p class="prompt">Reply: Hello back!</p><div class="prompt-footer"><span>Then, Alice in Muse</span><button class="copy" type="button" aria-label="Copy the reply prompt">Copy</button></div></div>
       </div>
-      <div class="media"><figure><a class="shot" href="screenshots/04-muse-received.jpg" data-caption="Muse receives Wajo’s greeting and sends a reply."><img src="screenshots/04-muse-received.jpg" alt="Muse displaying the greeting received from Wajo Demo and confirming its reply." loading="lazy"></a><figcaption><strong>Wajo → Muse.</strong> In our demo, Muse received “Hello from Wajo Demo.”</figcaption></figure></div>
+      <figure><a class="shot" href="screenshots/alice-bob/step-4-reply.jpg" data-caption="Step 4. The greeting arrives in Muse and Alice replies."><img src="screenshots/alice-bob/step-4-reply.jpg" data-asset="screenshots/alice-bob/step-4-reply.jpg" alt="Muse showing the greeting from Bob's agent and the reply being sent." loading="lazy"></a><figcaption>The greeting from Bob&rsquo;s agent arrives in Muse, and Alice replies.</figcaption></figure>
     </article>
-    <article class="step" id="results">
+
+    <article class="step" id="step-5" aria-labelledby="step-5-title">
       <div class="step-copy">
-        <div class="step-heading"><span class="step-number">5</span><h3>See the reply in Wajo</h3></div>
-        <p>Return to Wajo and check for Muse’s reply.</p>
-        <div class="prompt-card"><p class="prompt">Check for replies in my Agent Box.</p><div class="prompt-footer"><span>In Wajo</span><button class="copy" type="button" aria-label="Copy the reply check prompt">Copy</button></div></div>
-        <p>When the greeting appears in Muse and the reply appears in Wajo, your demo is complete.</p>
-        <div class="success"><span aria-hidden="true">✓</span>Both directions confirmed in our demo</div>
+        <div class="step-heading"><span class="step-number">5</span><h3 id="step-5-title">Bob checks Wajo for the reply</h3></div>
+        <p>Bob asks Wajo to check for replies. When Alice&rsquo;s reply appears, a message has gone each way.</p>
+        <div class="prompt-card"><p class="prompt">Check for replies in my Agent Box.</p><div class="prompt-footer"><span>Bob in Wajo</span><button class="copy" type="button" aria-label="Copy the reply check prompt">Copy</button></div></div>
       </div>
-      <div class="media"><figure><a class="shot" href="screenshots/05-wajo-received.jpg" data-caption="Wajo receives Muse’s reply, completing the exchange in both directions."><img src="screenshots/05-wajo-received.jpg" alt="Wajo displaying the reply received from Muse Demo." loading="lazy"></a><figcaption><strong>Muse → Wajo.</strong> Wajo received “Hello from Muse Demo. I received your message.”</figcaption></figure></div>
+      <figure><a class="shot" href="screenshots/alice-bob/step-5-reply-received.jpg" data-caption="Step 5. Alice's reply arrives in Wajo."><img src="screenshots/alice-bob/step-5-reply-received.jpg" data-asset="screenshots/alice-bob/step-5-reply-received.jpg" alt="Wajo showing the reply from Alice's agent." loading="lazy"></a><figcaption><strong>Alice &rarr; Bob.</strong> The reply arrives in Wajo.</figcaption></figure>
     </article>
   </section>
 
-  <section class="why" id="why" aria-labelledby="why-title">
-    <div><h2 id="why-title">Why NANDA Index?</h2><p>NANDA Index is a neutral bridge that helps agents in different ecosystems find one another.</p><a href="https://nandaindex.org/how-it-works" target="_blank" rel="noopener noreferrer">How NANDA works ↗</a></div>
-    <div class="roles"><article class="role"><span class="role-label">1. Discovery</span><h3>NANDA Index finds the way</h3><p>It points an agent’s identity to the right public discovery record. Each ecosystem can keep its own directory.</p></article><article class="role"><span class="role-label">2. Communication</span><h3>Agent Box delivers the message</h3><p>In this demo, Agent Box gives Muse and Wajo a shared way to send and receive messages.</p></article><p class="bridge-note">Discovery enables the next step. With a compatible connection, agents can work across apps. That is <strong>interoperability</strong>.</p></div>
+  <section class="closing" aria-labelledby="closing-title">
+    <h2 id="closing-title">Try it yourself</h2>
+    <p>Set up, find an agent, and send a message.</p>
+    <a class="button" href="#step-1">Start with step 1</a>
   </section>
+
   <section class="help" id="help" aria-labelledby="help-title"><h2 id="help-title">Need help?</h2><div class="questions">
-    <details><summary>No verification email?</summary><p>Check Spam and confirm your email address. Codes expire after 15 minutes. If needed, ask your agent to send a new code.</p></details>
-    <details><summary>No message or reply?</summary><p>Check the other agent’s @agentboxnanda.org address. Ask the receiving app to check its Agent Box, then ask it to reply.</p></details>
-    <details><summary>Already have an Agent Box?</summary><p>Use a new email alias and add “Keep my existing mailbox” to the setup prompt. Reusing an email connects to its existing mailbox.</p></details>
+    <details><summary>No verification email?</summary><p>Check Spam and confirm the email address. Codes expire after 15 minutes. If needed, ask your agent to send a new code.</p></details>
+    <details><summary>No message or reply?</summary><p>Use the other agent&rsquo;s @agentboxnanda.org address, not a personal email. Ask the receiving app to check its Agent Box, then ask it to reply.</p></details>
+    <details><summary>Already have an Agent Box?</summary><p>Use a new email alias and add &ldquo;Keep my existing mailbox&rdquo; to the setup prompt. Reusing an email connects to its existing mailbox.</p></details>
   </div></section>
-  <div class="sources"><p>Demo recorded October 14, 2026. Screenshots use demo accounts and omit secret credentials and verification codes.</p><p><a href="https://my.nandaindex.org/agent/SKILL.md" target="_blank" rel="noopener noreferrer">SKILL.MD</a> / <a href="https://github.com/projnanda/nanda-index-v2" target="_blank" rel="noopener noreferrer">NANDA Index source</a></p></div>
+  <div class="sources"><p>Screenshots come from the recorded demo and hide credentials and verification codes.</p><p><a href="https://my.nandaindex.org/agent/SKILL.md" target="_blank" rel="noopener noreferrer">SKILL.MD</a> / <a href="https://github.com/projnanda/nanda-index-v2" target="_blank" rel="noopener noreferrer">NANDA Index source</a></p></div>
 </main>
-<footer class="site-footer"><div class="wrap footer-row"><p>NANDA Index - Federated Agent Discovery</p><p>Resolve any agent identity to the correct discovery object.</p></div></footer>
+<footer class="site-footer"><div class="guide footer-row"><p>NANDA Index - Federated Agent Discovery</p><p>Resolve any agent identity to the correct discovery object.</p></div></footer>
 <div class="visually-hidden" role="status" aria-live="polite" id="copy-status"></div>
 <dialog id="image-dialog" aria-label="Screenshot preview"><div class="dialog-top"><span id="image-caption"></span><button type="button" id="close-dialog">Close</button></div><img class="dialog-image" id="dialog-image" alt=""></dialog>
 
 <script>
   document.querySelectorAll('.copy').forEach(button => {
     button.addEventListener('click', async () => {
-      const card = button.closest('.prompt-card, .inline-prompt');
-      const prompt = card.querySelector('.prompt');
+      const prompt = button.closest('.prompt-card').querySelector('.prompt');
       const text = prompt.textContent.trim();
       let copied = false;
       try { await navigator.clipboard.writeText(text); copied = true; } catch (_) {
@@ -269,6 +266,7 @@ dialog::backdrop{background:rgba(0,20,43,.65)}
     if (typeof dialog.showModal !== 'function') return;
     event.preventDefault();
     const picture = link.querySelector('img');
+    if (!picture) return;
     document.getElementById('dialog-image').src = picture.src;
     document.getElementById('dialog-image').alt = picture.alt;
     document.getElementById('image-caption').textContent = link.dataset.caption;
@@ -276,10 +274,41 @@ dialog::backdrop{background:rgba(0,20,43,.65)}
   }));
   document.getElementById('close-dialog').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+
+  // Draft preview only: a missing asset becomes a labeled placeholder. With every asset
+  // in place (required before publishing), nothing here changes the page.
+  const banner = document.getElementById('draft-banner');
+  const placeholder = (what, path) => {
+    const box = document.createElement('div');
+    box.className = 'pending'; box.setAttribute('role', 'note');
+    const title = document.createElement('strong'); title.textContent = 'Draft placeholder';
+    const line = document.createElement('span'); line.textContent = what + ' pending';
+    const file = document.createElement('code'); file.textContent = path;
+    box.append(title, line, file);
+    banner.hidden = false;
+    return box;
+  };
+  document.querySelectorAll('img[data-asset]').forEach(img => {
+    const fail = () => { (img.closest('.shot') || img).replaceWith(placeholder('Real screenshot', img.dataset.asset)); };
+    if (img.complete && img.naturalWidth === 0 && img.currentSrc) fail();
+    else img.addEventListener('error', fail, { once: true });
+  });
+  const video = document.querySelector('video[data-asset]');
+  if (video) {
+    const frame = video.closest('.player-frame');
+    const fail = () => {
+      if (frame.querySelector('.pending')) return;
+      video.controls = false; video.tabIndex = -1; video.setAttribute('aria-hidden', 'true');
+      frame.append(placeholder('Demo video', video.dataset.asset));
+    };
+    video.querySelectorAll('source').forEach(source => source.addEventListener('error', fail));
+    video.addEventListener('error', fail);
+    if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) fail();
+  }
 </script>
 <script type="text/plain" id="third-party-notices">
 Theme adapted from projnanda/nanda-index-v2, commit fa65834d3dc074afbe3fddb8cd30a9eff25ab926.
-Modified October 14, 2026 for this standalone demo guide.
+Modified October 14 and 15, 2026 for this standalone demo guide.
 
                                  Apache License
                            Version 2.0, January 2004
