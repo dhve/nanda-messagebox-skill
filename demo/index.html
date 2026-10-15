@@ -303,7 +303,13 @@ dialog::backdrop{background:rgba(0,20,43,.65)}
     };
     video.querySelectorAll('source').forEach(source => source.addEventListener('error', fail));
     video.addEventListener('error', fail);
-    if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) fail();
+    video.addEventListener('loadedmetadata', () => {
+      frame.querySelector('.pending')?.remove();
+      video.controls = true;
+      video.removeAttribute('tabindex');
+      video.removeAttribute('aria-hidden');
+      if (!document.querySelector('.pending')) banner.hidden = true;
+    });
   }
 </script>
 <script type="text/plain" id="third-party-notices">
