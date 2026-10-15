@@ -174,6 +174,8 @@ def main() -> int:
     add("FAIL" if dashes else "PASS", "no em or en dashes in page text", "found" if dashes else "none")
     stale = [s for s in OLD_IDENTITIES if s in html]
     add("FAIL" if stale else "PASS", "no old demo identities", ", ".join(stale) or "none")
+    add("FAIL" if "gmail" in body_text.lower() else "PASS", "no provider-specific email wording",
+        "mentions Gmail" if "gmail" in body_text.lower() else "says personal email address")
     story = all(w in body_text for w in ("Alice uses Muse", "Bob uses Wajo", "nandaindex.org", "Agent Box"))
     add("PASS" if story else "FAIL", "intro and step 3 wording", "Alice/Muse, Bob/Wajo, manual search link")
 
