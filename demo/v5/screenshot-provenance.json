@@ -1,0 +1,95 @@
+{
+  "video": "video/muse-wajo-demo-v5.mp4",
+  "duration": 148.4,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sha256": "11328edd341f79361ea9d9e90a2224afb6d287bbf1fa2763f67918123d9fefc2",
+  "screenshots": [
+    {
+      "scene": "goal",
+      "video_time_seconds": 11.673333,
+      "file": "screenshots/goal.jpg",
+      "sha256": "ee076d13a79e8883f124e845953bdee48c26c5b3ed7535bb99b9cad798bc1a45"
+    },
+    {
+      "scene": "connect_alice",
+      "video_time_seconds": 22.035,
+      "file": "screenshots/connect_alice.jpg",
+      "sha256": "9fa7a649d2bf811374f2de9f820f0d3a01beccab3e2a9050bee0a400391687eb"
+    },
+    {
+      "scene": "connect_bob",
+      "video_time_seconds": 29.648333,
+      "file": "screenshots/connect_bob.jpg",
+      "sha256": "e94297555d920c7d8a7b87844cc43f67ec710a814d5b90f81e247cb80ffad5e6"
+    },
+    {
+      "scene": "verify",
+      "video_time_seconds": 32.427666,
+      "file": "screenshots/verify.jpg",
+      "sha256": "804c8d42dd323e9a99d92883f51228a9cd2f64f9cfc8a0c687706108dd11d1c2"
+    },
+    {
+      "scene": "known",
+      "video_time_seconds": 47.67,
+      "file": "screenshots/known.jpg",
+      "sha256": "4e60237a4d633d37a3fe2a65c996cd0d71c75137c8af1d98b4bf09c4a20c3254"
+    },
+    {
+      "scene": "domain",
+      "video_time_seconds": 58.193333,
+      "file": "screenshots/domain.jpg",
+      "sha256": "66dfcea26a8961933047b1c58ace0e17d0b04573349951d619147c72aee63bf2"
+    },
+    {
+      "scene": "menu",
+      "video_time_seconds": 68.701666,
+      "file": "screenshots/menu.jpg",
+      "sha256": "c2a2312e5dabb83af84842d78d869fc1010eeb4449dfd5eb2bf383cf49ae7396"
+    },
+    {
+      "scene": "later",
+      "video_time_seconds": 78.511667,
+      "file": "screenshots/later.jpg",
+      "sha256": "f5f8faf7d77f14c98ba61022f25748fb32305e44de1ca894324c91e5b0f50873"
+    },
+    {
+      "scene": "resolve",
+      "video_time_seconds": 91.64,
+      "file": "screenshots/resolve.jpg",
+      "sha256": "a94ee358d7b6a1bfabdf3d4ec082e1609cd9612bd98458571b10e7128570e49d"
+    },
+    {
+      "scene": "card",
+      "video_time_seconds": 105.146667,
+      "file": "screenshots/card.jpg",
+      "sha256": "7468812a435dcab14f2ddce6ab3fd7fcf3a8679801a9c3502c2c0c636586a97e"
+    },
+    {
+      "scene": "deliver",
+      "video_time_seconds": 115.383334,
+      "file": "screenshots/deliver.jpg",
+      "sha256": "af21de9005697e86e6633cea516a2c4e231885b75d92a93db99f7c2fab172e69"
+    },
+    {
+      "scene": "reply",
+      "video_time_seconds": 124.993333,
+      "file": "screenshots/reply.jpg",
+      "sha256": "cb4a134e658243ae9af71e387e7e878d1f17e11174b8d165d1ef537b001b2dbc"
+    },
+    {
+      "scene": "roles",
+      "video_time_seconds": 138.305,
+      "file": "screenshots/roles.jpg",
+      "sha256": "173d9133a590290c795ef9dd0dc4f91bb9e8bb381fe04155c8f94acd4048e031"
+    },
+    {
+      "scene": "end",
+      "video_time_seconds": 147.2,
+      "file": "screenshots/end.jpg",
+      "sha256": "0c304a762665905cc3e0f639401a4027907a53dd6bda9d1ec1d721cfd334456a"
+    }
+  ],
+  "source": "Screenshots extracted directly from final exported MP4; no separate recreation."
+}

@@ -1,0 +1,51 @@
+{
+  "version": 5,
+  "illustrative": true,
+  "prompts": [
+    {
+      "id": "setup_alice",
+      "app": "Alice in Muse",
+      "text": "Set up Alice's Bakery at my.nandaindex.org using alice@bakery.com. We offer birthday cakes."
+    },
+    {
+      "id": "setup_bob",
+      "app": "Bob in Wajo",
+      "text": "Set me up at my.nandaindex.org using bob@gmail.com."
+    },
+    {
+      "id": "verify",
+      "app": "Each person in their own app",
+      "text": "My code is 123456."
+    },
+    {
+      "id": "ask",
+      "app": "Bob in Wajo",
+      "text": "Ask @bakery.com: What cakes are available?"
+    },
+    {
+      "id": "check_alice",
+      "app": "Alice in Muse",
+      "text": "Check my AgentBox."
+    },
+    {
+      "id": "menu_reply",
+      "app": "Alice in Muse",
+      "text": "Reply: We have chocolate and vanilla cakes."
+    },
+    {
+      "id": "check_bob",
+      "app": "Bob in Wajo",
+      "text": "Check my AgentBox."
+    },
+    {
+      "id": "update",
+      "app": "Alice in Muse",
+      "text": "Message bob@gmail.com: Your cake is ready."
+    },
+    {
+      "id": "reply",
+      "app": "Bob in Wajo",
+      "text": "Reply: Thanks. I'll collect it at 2 pm."
+    }
+  ]
+}

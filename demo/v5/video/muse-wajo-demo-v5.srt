@@ -1,0 +1,207 @@
+1
+00:00:00,184 --> 00:00:02,861
+Alice runs a bakery using Muse.
+
+2
+00:00:02,929 --> 00:00:06,042
+Bob is her customer and uses Wajo.
+
+3
+00:00:06,120 --> 00:00:08,425
+They already know who they want to contact.
+
+4
+00:00:08,737 --> 00:00:12,323
+Let's see how their agents connect, including when the bakery
+
+5
+00:00:12,333 --> 00:00:13,585
+contacts Bob.
+
+6
+00:00:13,917 --> 00:00:17,843
+Alice pastes the setup prompt into Muse using her bakery
+
+7
+00:00:17,853 --> 00:00:18,659
+email.
+
+8
+00:00:18,726 --> 00:00:22,705
+Her agent follows the website instructions and prepares its agent
+
+9
+00:00:22,715 --> 00:00:23,340
+box.
+
+10
+00:00:23,684 --> 00:00:27,064
+Bob does the same in Wajo with his own email.
+
+11
+00:00:27,131 --> 00:00:30,564
+His agent can run in a different app from Alice's.
+
+12
+00:00:30,917 --> 00:00:34,595
+Each person enters the code sent to their own inbox.
+
+13
+00:00:34,662 --> 00:00:37,829
+The code proves control of that email account.
+
+14
+00:00:37,896 --> 00:00:40,552
+The example code on screen is fictional.
+
+15
+00:00:40,884 --> 00:00:43,625
+Bob already knows bakery.com.
+
+16
+00:00:43,692 --> 00:00:46,944
+He asks his agent, "Ask at bakery.com.
+
+17
+00:00:47,011 --> 00:00:48,732
+What cakes are available?"
+
+18
+00:00:49,084 --> 00:00:52,595
+In this example, the bakery has published its agents contact
+
+19
+00:00:52,605 --> 00:00:54,421
+details on its website.
+
+20
+00:00:54,488 --> 00:00:57,272
+Bob's agent uses that direct path.
+
+21
+00:00:57,339 --> 00:00:59,644
+An index lookup isn't needed here.
+
+22
+00:01:00,017 --> 00:01:03,110
+AgentBox carries Bob's question to Alice.
+
+23
+00:01:03,187 --> 00:01:06,539
+She checks her inbox and replies, "We have chocolate and
+
+24
+00:01:06,549 --> 00:01:07,652
+vanilla cakes."
+
+25
+00:01:07,804 --> 00:01:10,099
+Bob's agent receives the menu.
+
+26
+00:01:10,450 --> 00:01:13,515
+Later, after Bob has placed an order and agreed to
+
+27
+00:01:13,525 --> 00:01:16,245
+updates, Alice starts a new message.
+
+28
+00:01:16,323 --> 00:01:19,000
+She asks her agent to tell Bob that his cake
+
+29
+00:01:19,078 --> 00:01:19,766
+is ready.
+
+30
+00:01:20,150 --> 00:01:24,807
+Alice knows Bob's registered ID, bob@gmail.com.
+
+31
+00:01:24,874 --> 00:01:28,307
+Bob doesn't own gmail.com or need a website.
+
+32
+00:01:28,427 --> 00:01:31,502
+Her agent asks the index to resolve his ID to
+
+33
+00:01:31,512 --> 00:01:33,520
+his hosted agent card.
+
+34
+00:01:33,884 --> 00:01:37,693
+Alice's agent verifies the link between Bob's ID and his
+
+35
+00:01:37,703 --> 00:01:38,274
+card.
+
+36
+00:01:38,522 --> 00:01:41,806
+The card provides the current endpoint where his agent can
+
+37
+00:01:41,852 --> 00:01:42,849
+be contacted.
+
+38
+00:01:42,948 --> 00:01:45,891
+The sending agent checks the required permissions before
+
+39
+00:01:45,926 --> 00:01:46,976
+proceeding.
+
+40
+00:01:47,350 --> 00:01:50,283
+AgentBox delivers the update to Bob.
+
+41
+00:01:50,350 --> 00:01:54,415
+The index handles identity resolution while AgentBox carries the
+
+42
+00:01:54,425 --> 00:01:56,666
+message between their agents.
+
+43
+00:01:57,017 --> 00:02:00,773
+Bob checks his inbox and replies, "Thanks, I'll collect it
+
+44
+00:02:00,783 --> 00:02:01,620
+at 2 p.m."
+
+45
+00:02:01,975 --> 00:02:06,269
+Alice receives his reply in Muse, completing the exchange.
+
+46
+00:02:06,617 --> 00:02:08,922
+Both people keep their own apps.
+
+47
+00:02:09,255 --> 00:02:12,756
+The index connects a known identity to the agent's current
+
+48
+00:02:12,766 --> 00:02:17,061
+contact details, including for people who don't control a domain.
+
+49
+00:02:17,128 --> 00:02:20,242
+Permission still governs every connection.
+
+50
+00:02:20,584 --> 00:02:22,889
+You can read the matching prompts in the guide.
+
+51
+00:02:23,137 --> 00:02:25,776
+Open the setup page to connect your own agent and
+
+52
+00:02:25,786 --> 00:02:26,836
+try a message.

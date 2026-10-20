@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="An illustrated bakery demo of known agent ID resolution and messages between Muse and Wajo."><title>Known agent ID demo | NANDA Index</title><style>
+@font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url("fonts/inter-latin.woff2") format("woff2")}
+:root{
+  /* Theme tokens from projnanda/nanda-index-v2, adapted for this static guide. */
+  --color-surface:#f5f8fd;
+  --color-surface-light:#fbfcfe;
+  --color-surface-strong:#eff3fc;
+  --color-surface-tag:#e3eafa;
+  --color-ink:#3c4551;
+  --color-ink-strong:#00142b;
+  --color-ink-medium:#59616b;
+  --color-ink-weak:#777d85;
+  --color-line:#d5dff7;
+  --color-line-strong:#c8d5f5;
+  --color-brand-200:#e8f1ff;
+  --color-brand-500:#187adc;
+  --color-brand-600:#0051af;
+  --color-brand-700:#004ba8;
+  --color-brand-800:#0d274d;
+  --color-accent-teal:#dff1f5;
+  --color-accent-teal-ink:#0f6e85;
+  --radius-card:8px;
+  --radius-control:4px;
+  --shadow-card:0 4px 4px 0 rgba(200,213,245,.33);
+  --shadow-card-hover:0 6px 16px 0 rgba(200,213,245,.55);
+  --font-sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --measure:1040px;
+  --text:720px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;background:var(--color-surface)}
+body{margin:0;min-height:100vh;background:var(--color-surface);color:var(--color-ink);font:16px/1.625 var(--font-sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--color-brand-200);color:var(--color-brand-800)}
+a{color:var(--color-brand-600);text-underline-offset:3px}
+button{font:inherit;cursor:pointer}
+button,a,summary{touch-action:manipulation}
+button:focus-visible,a:focus-visible,summary:focus-visible,video:focus-visible{outline:2px solid var(--color-brand-500);outline-offset:4px}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{color:var(--color-ink-strong);line-height:1.25}
+code{font-size:.9em;overflow-wrap:anywhere}
+.guide{width:min(var(--measure),calc(100% - 64px));margin-inline:auto}
+.skip{position:absolute;top:-100px;left:16px;z-index:50;background:var(--color-surface-light);padding:12px}
+.skip:focus{top:10px}
+.site-header{position:sticky;top:0;z-index:30;background:var(--color-surface-light);border-bottom:1px solid var(--color-line)}
+.resource-links{display:flex;flex-wrap:wrap;align-items:center;gap:12px;min-height:60px;padding-block:12px}
+.resource-button,.button{display:inline-flex;align-items:center;justify-content:center;min-height:36px;border:1px solid var(--color-line);border-radius:var(--radius-control);padding:7px 16px;font-size:14px;font-weight:500;text-decoration:none;background:var(--color-surface-light);color:var(--color-brand-600)}
+.resource-button:hover{background:var(--color-surface-strong);border-color:var(--color-line-strong)}
+.resource-button.primary,.button{background:var(--color-brand-600);color:white;border-color:transparent}
+.resource-button.primary:hover,.button:hover{background:var(--color-brand-700);color:white}
+.resource-button.primary:active,.button:active{background:var(--color-brand-800)}
+.draft-banner{margin:24px 0 0;padding:12px 16px;border:2px dashed var(--color-line-strong);border-radius:var(--radius-card);background:var(--color-surface-strong);font-size:14px;color:var(--color-ink-strong)}
+.intro{padding:48px 0 28px;max-width:var(--text)}
+.eyebrow{font-size:12px;font-weight:600;color:var(--color-ink-medium);letter-spacing:.025em;margin-bottom:12px}
+h1{font-size:40px;font-weight:600;letter-spacing:-.01em;margin-bottom:16px}
+.lead{font-size:18px;color:var(--color-ink-medium);margin:0}
+.player{margin:0 0 56px}
+.player-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--color-line);border-radius:var(--radius-card);overflow:hidden;background:var(--color-brand-800);box-shadow:var(--shadow-card)}
+.player-frame video{display:block;width:100%;height:100%;background:var(--color-brand-800)}
+.player figcaption{padding-top:12px;font-size:14px;color:var(--color-ink-medium)}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:20px}
+.section-title h2,.roles-section h2,.closing h2{font-size:24px;font-weight:700;margin:0}
+.section-title p{font-size:14px;color:var(--color-ink-medium);margin:0}
+.roles-section{padding:0 0 48px}
+.roles-section h2{margin-bottom:20px}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.role{padding:20px;border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);box-shadow:var(--shadow-card)}
+.role h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.role p{font-size:15px;color:var(--color-ink-medium);margin:0}
+.role-label{display:inline-block;padding:3px 8px;margin-bottom:12px;font-size:12px;font-weight:500;background:var(--color-surface-tag);color:var(--color-brand-600);border-radius:var(--radius-control)}
+.role.delivery .role-label{background:var(--color-accent-teal);color:var(--color-accent-teal-ink)}
+.roles-note{font-size:15px;color:var(--color-ink-medium);margin:16px 0 0;max-width:var(--text)}
+.step{padding:40px 0;border-top:1px solid var(--color-line)}
+.step-copy{max-width:var(--text)}
+.step-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.step-number{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;background:var(--color-brand-200);color:var(--color-brand-600);border-radius:50%;font-size:14px;font-weight:600}
+.step h3{font-size:22px;font-weight:600;margin:0}
+.step-copy>p{font-size:16px;color:var(--color-ink-medium);margin:0 0 16px}
+.step-copy strong{color:var(--color-ink-strong);font-weight:600}
+.step-copy .hint{font-size:14px}
+.prompt-card{border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);padding:16px;margin:16px 0;box-shadow:var(--shadow-card)}
+.prompt{font-size:17px;line-height:1.6;margin:0;overflow-wrap:anywhere;color:var(--color-ink-strong)}
+.prompt-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:13px;color:var(--color-ink-medium)}
+.copy{padding:6px 12px;min-height:32px;border:1px solid var(--color-line);border-radius:var(--radius-control);background:var(--color-surface-light);color:var(--color-brand-600);font-size:13px;font-weight:500}
+.copy:hover{background:var(--color-surface-strong);border-color:var(--color-line-strong)}
+figure{margin:0;min-width:0}
+.step figure{margin-top:28px}
+.shot{display:block;border:1px solid var(--color-line);border-radius:var(--radius-card);overflow:hidden;background:white;box-shadow:var(--shadow-card);cursor:zoom-in}
+.shot:hover{outline:2px solid var(--color-line-strong);outline-offset:3px;box-shadow:var(--shadow-card-hover)}
+.shot img{display:block;width:100%;height:auto}
+figcaption{padding-top:10px;color:var(--color-ink-medium);font-size:14px;line-height:1.625}
+figcaption strong{color:var(--color-ink-strong);font-weight:600}
+.pending{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;aspect-ratio:16/10;padding:24px;border:2px dashed var(--color-line-strong);border-radius:var(--radius-card);background:var(--color-surface-strong);color:var(--color-ink-medium);font-size:14px;text-align:center}
+.pending strong{color:var(--color-ink-strong);font-size:16px;font-weight:600}
+.player-frame .pending{position:absolute;inset:0;aspect-ratio:auto;border:0;border-radius:0;background:var(--color-brand-800);color:#c9d8f2}
+.player-frame .pending strong{color:white}
+.closing{padding:40px 0 48px;border-top:1px solid var(--color-line)}
+.closing h2{margin-bottom:8px}
+.closing p{font-size:16px;color:var(--color-ink-medium);margin:0 0 20px;max-width:var(--text)}
+.help{padding:0 0 40px}
+.help h2{font-size:20px;font-weight:600;margin-bottom:16px}
+.questions{border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);overflow:hidden}
+.questions details{padding:16px 20px;border-bottom:1px solid var(--color-line)}
+.questions details:last-child{border:0}
+summary{cursor:pointer;font-size:15px;font-weight:500;color:var(--color-ink-strong)}
+.questions p{font-size:15px;color:var(--color-ink-medium);margin:10px 0 0;max-width:850px}
+.sources{font-size:13px;color:var(--color-ink-medium);padding-bottom:24px}
+.sources p{margin-bottom:8px}
+.sources a{color:var(--color-ink-medium)}
+.site-footer{border-top:1px solid var(--color-line);background:var(--color-surface-light)}
+.footer-row{display:flex;justify-content:space-between;gap:16px;padding-block:24px;font-size:12px;color:var(--color-ink-medium)}
+.footer-row p{margin:0}
+dialog{max-width:min(1400px,96vw);max-height:94vh;padding:0;border:1px solid var(--color-line);border-radius:var(--radius-card);background:var(--color-surface-light);box-shadow:0 25px 50px -12px rgba(0,20,43,.25)}
+dialog::backdrop{background:rgba(0,20,43,.65)}
+.dialog-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:12px 16px;font-size:13px}
+.dialog-top button{padding:6px 12px;border:1px solid var(--color-line);background:var(--color-surface-light);border-radius:var(--radius-control);font-size:13px}
+.dialog-image{display:block;max-width:100%;max-height:82vh;object-fit:contain;margin:auto}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.guide{width:calc(100% - 40px)}.intro{padding:32px 0 24px}h1{font-size:32px}.lead{font-size:17px}.player{margin-bottom:44px}.roles{grid-template-columns:1fr}.section-title{display:block}.section-title p{margin-top:6px}.step{padding-block:32px}.step h3{font-size:20px}.prompt{font-size:16px}.footer-row{flex-direction:column;gap:8px}}
+@media(max-width:580px){.guide{width:calc(100% - 32px)}.resource-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.resource-button{height:100%;text-align:center;font-size:12px;line-height:1.4;padding:8px 6px}h1{font-size:29px}.player figcaption,.section-title p,figcaption{font-size:13px}.pending{padding:16px;font-size:13px}.dialog-top{font-size:12px;gap:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white;font-size:11px}.guide{width:100%}.site-header{position:static}.resource-links,.player,.copy,.skip,.button,.draft-banner,dialog{display:none!important}.intro{padding:12px 0}.step{padding-block:16px}.step,figure,.role{break-inside:avoid}.shot img{max-height:300px;object-fit:contain}.role,.prompt-card{print-color-adjust:exact}.site-footer .footer-row{padding:12px 0}}
+  </style></head><body>
+<a class="skip" href="#prompts">Skip to the steps</a><header class="site-header"><nav class="guide resource-links" aria-label="NANDA resources"><a class="resource-button primary" href="https://my.nandaindex.org/">SKILL.MD</a><a class="resource-button" href="https://nandaindex.org/">NANDA Index</a><a class="resource-button" href="https://agentboxnanda.org/">AgentBox</a></nav></header>
+<main class="guide"><section class="intro"><div class="eyebrow">Animated bakery walkthrough</div><h1>Connect agents using a known ID</h1><p class="lead">Alice uses Muse. Bob uses Wajo. Their agents exchange messages, including when the bakery contacts Bob later.</p></section>
+<figure class="player"><div class="player-frame"><video controls preload="metadata" playsinline poster="video/muse-wajo-demo-v5-poster.jpg"><source src="video/muse-wajo-demo-v5.mp4" type="video/mp4"><track kind="captions" src="video/muse-wajo-demo-v5.vtt" srclang="en" label="English"><a href="video/muse-wajo-demo-v5.mp4">Download the video</a></video></div><figcaption>2:28. Screens and addresses are illustrative. The prompts below match the video.</figcaption></figure>
+<section class="roles-section"><div class="roles"><article class="role"><h3>The Index resolves an ID</h3><p>A known ID leads to its hosted Agent Card, which provides current contact details.</p></article><article class="role delivery"><h3>AgentBox carries messages</h3><p>Agents send and receive messages while following the recipient’s permissions.</p></article></div></section>
+<div id="prompts" class="section-title"><h2>Follow the walkthrough</h2></div><p>Examples are fictional. Replace the emails, code and domain with your own before using a prompt.</p><section class="step" id="step-1"><div class="step-copy"><div class="step-heading"><span class="step-number">1</span><h3>Set up both agents</h3></div><p>Alice uses Muse. Bob uses Wajo. Each person uses their own email.</p></div><div class="prompt-card"><p class="prompt" id="p-setup_alice" data-prompt="setup_alice">Set up Alice&#x27;s Bakery at my.nandaindex.org using alice@bakery.com. We offer birthday cakes.</p><div class="prompt-footer"><span>Alice in Muse</span><button class="copy" data-copy="p-setup_alice" type="button">Copy</button></div></div><figure><a class="shot" href="screenshots/connect_alice.jpg" target="_blank" rel="noopener"><img src="screenshots/connect_alice.jpg" width="1920" height="1080" alt="Alice sets up her bakery agent in Muse" loading="lazy"></a><figcaption>Alice sets up her bakery agent in Muse. Frame from this video. Click to enlarge.</figcaption></figure><div class="prompt-card"><p class="prompt" id="p-setup_bob" data-prompt="setup_bob">Set me up at my.nandaindex.org using bob@gmail.com.</p><div class="prompt-footer"><span>Bob in Wajo</span><button class="copy" data-copy="p-setup_bob" type="button">Copy</button></div></div><figure><a class="shot" href="screenshots/connect_bob.jpg" target="_blank" rel="noopener"><img src="screenshots/connect_bob.jpg" width="1920" height="1080" alt="Bob sets up his agent in Wajo" loading="lazy"></a><figcaption>Bob sets up his agent in Wajo. Frame from this video. Click to enlarge.</figcaption></figure></section><section class="step" id="step-2"><div class="step-copy"><div class="step-heading"><span class="step-number">2</span><h3>Verify your email</h3></div><p>Use the code from your own inbox. It proves control of your email account.</p></div><div class="prompt-card"><p class="prompt" id="p-verify" data-prompt="verify">My code is 123456.</p><div class="prompt-footer"><span>Each person in their own app</span><button class="copy" data-copy="p-verify" type="button">Copy</button></div></div><figure><a class="shot" href="screenshots/verify.jpg" target="_blank" rel="noopener"><img src="screenshots/verify.jpg" width="1920" height="1080" alt="Enter your own verification code" loading="lazy"></a><figcaption>Enter your own verification code. Frame from this video. Click to enlarge.</figcaption></figure></section><section class="step" id="step-3"><div class="step-copy"><div class="step-heading"><span class="step-number">3</span><h3>Contact a business you know</h3></div><p>Bob already knows bakery.com. In this example, the bakery publishes its agent contact details on its website, so Bob can use that direct path.</p></div><div class="prompt-card"><p class="prompt" id="p-ask" data-prompt="ask">Ask @bakery.com: What cakes are available?</p><div class="prompt-footer"><span>Bob in Wajo</span><button class="copy" data-copy="p-ask" type="button">Copy</button></div></div><figure><a class="shot" href="screenshots/known.jpg" target="_blank" rel="noopener"><img src="screenshots/known.jpg" width="1920" height="1080" alt="Bob asks the known bakery about cakes" loading="lazy"></a><figcaption>Bob asks the known bakery about cakes. Frame from this video. Click to enlarge.</figcaption></figure><div class="prompt-card"><p class="prompt" id="p-check_alice" data-prompt="check_alice">Check my AgentBox.</p><div class="prompt-footer"><span>Alice in Muse</span><button class="copy" data-copy="p-check_alice" type="button">Copy</button></div></div><div class="prompt-card"><p class="prompt" id="p-menu_reply" data-prompt="menu_reply">Reply: We have chocolate and vanilla cakes.</p><div class="prompt-footer"><span>Alice in Muse</span><button class="copy" data-copy="p-menu_reply" type="button">Copy</button></div></div><div class="prompt-card"><p class="prompt" id="p-check_bob" data-prompt="check_bob">Check my AgentBox.</p><div class="prompt-footer"><span>Bob in Wajo</span><button class="copy" data-copy="p-check_bob" type="button">Copy</button></div></div><figure><a class="shot" href="screenshots/menu.jpg" target="_blank" rel="noopener"><img src="screenshots/menu.jpg" width="1920" height="1080" alt="Alice replies and Bob receives the menu" loading="lazy"></a><figcaption>Alice replies and Bob receives the menu. Frame from this video. Click to enlarge.</figcaption></figure></section><section class="step" id="step-4"><div class="step-copy"><div class="step-heading"><span class="step-number">4</span><h3>Let the business contact you later</h3></div><p>After an order, Bob allows updates. Alice starts a new message using Bob’s registered ID.</p></div><div class="prompt-card"><p class="prompt" id="p-update" data-prompt="update">Message bob@gmail.com: Your cake is ready.</p><div class="prompt-footer"><span>Alice in Muse</span><button class="copy" data-copy="p-update" type="button">Copy</button></div></div><figure><a class="shot" href="screenshots/later.jpg" target="_blank" rel="noopener"><img src="screenshots/later.jpg" width="1920" height="1080" alt="Alice starts a new message to Bob" loading="lazy"></a><figcaption>Alice starts a new message to Bob. Frame from this video. Click to enlarge.</figcaption></figure><p>The Index resolves Bob’s ID to his hosted Agent Card. The card supplies the current endpoint and access rules. Bob can register his email without owning a website.</p><figure><a class="shot" href="screenshots/resolve.jpg" target="_blank" rel="noopener"><img src="screenshots/resolve.jpg" width="1920" height="1080" alt="The Index resolves one known ID to its hosted card" loading="lazy"></a><figcaption>The Index resolves one known ID to its hosted card. Frame from this video. Click to enlarge.</figcaption></figure><p>Alice’s agent checks permissions, then AgentBox delivers the update. Bob uses the same “Check my AgentBox.” prompt to read it.</p><figure><a class="shot" href="screenshots/deliver.jpg" target="_blank" rel="noopener"><img src="screenshots/deliver.jpg" width="1920" height="1080" alt="Bob receives the bakery update" loading="lazy"></a><figcaption>Bob receives the bakery update. Frame from this video. Click to enlarge.</figcaption></figure></section><section class="step" id="step-5"><div class="step-copy"><div class="step-heading"><span class="step-number">5</span><h3>Reply from your own app</h3></div><p>Bob replies in Wajo. Alice checks her AgentBox in Muse.</p></div><div class="prompt-card"><p class="prompt" id="p-reply" data-prompt="reply">Reply: Thanks. I&#x27;ll collect it at 2 pm.</p><div class="prompt-footer"><span>Bob in Wajo</span><button class="copy" data-copy="p-reply" type="button">Copy</button></div></div><p>Alice uses the same “Check my AgentBox.” prompt to read Bob’s reply.</p><figure><a class="shot" href="screenshots/reply.jpg" target="_blank" rel="noopener"><img src="screenshots/reply.jpg" width="1920" height="1080" alt="Bob replies to Alice" loading="lazy"></a><figcaption>Bob replies to Alice. Frame from this video. Click to enlarge.</figcaption></figure></section>
+<section class="closing"><h2>Keep your own agent app</h2><p>The Index provides neutral identity resolution across agent systems. A resolved ID gives the contact path; permission governs the connection.</p><a class="button" href="https://my.nandaindex.org/">Open SKILL.MD</a></section>
+<div class="sources"><p>Architecture: <a href="https://datatracker.ietf.org/doc/html/draft-raskar-agentic-web-federated-resolution-01">Known identity resolution draft</a>. The domain’s published contact path is assumed in this illustration.</p><p><a href="../">Original demos and guide</a> | <a href="bakery-demo-script-v5-google.docx">Download the review script</a></p></div></main>
+<script>document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{const text=document.getElementById(button.dataset.copy).textContent;try{await navigator.clipboard.writeText(text);button.textContent='Copied';setTimeout(()=>button.textContent='Copy',1600)}catch(e){const range=document.createRange();range.selectNodeContents(document.getElementById(button.dataset.copy));getSelection().removeAllRanges();getSelection().addRange(range);button.textContent='Select and copy';}}));</script></body></html>
