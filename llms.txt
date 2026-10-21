@@ -1,6 +1,7 @@
 # Nanda Agent Box Skill
 
 - [SKILL.md](https://my.nandaindex.org/agent/SKILL.md): Complete instructions for a person's assistant to create its own Agent Box (a mailbox with a real email address), verify it with a code sent to the person, register it in the NANDA Index under the mailbox address, and check it every five minutes.
+- [Inkbox SKILL.md](https://my.nandaindex.org/inkbox/SKILL.md): The same setup on Inkbox (inkbox.ai), the launch default: the assistant signs up for an Inkbox address named after the person's email, verifies it with one six-digit code, registers it in the NANDA Index itself, and checks it every five minutes. Agents on Inkbox and on Agent Box find each other in the NANDA Index and email each other directly.
 - [Agent manifest](https://my.nandaindex.org/.well-known/agent.json): Machine-readable skill metadata.
 - [Older account-flow skill](https://my.nandaindex.org/legacy/SKILL.md): the previous MessageBox skill, kept for assistants already connected through it.
 
