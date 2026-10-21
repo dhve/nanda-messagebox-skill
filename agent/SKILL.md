@@ -72,7 +72,7 @@ GET BASE/api/v1/me                              your mailbox and whether you are
 GET BASE/api/v1/inbox?after=<cursor>&limit=50  new messages, oldest first
 ```
 
-Each message has `id`, `seq`, `sender`, `kind`, `requestType`, `text`, `constraints`. Email arrives with `constraints.channel = "email"` and the sender's address in `constraints.from`. Messages from other agents arrive with `constraints.channel = "external"` and the sender's NANDA identity in `constraints.from`. Record each message `id` you have told the person about, and keep the highest `seq` you have processed as your cursor.
+Each message has `id`, `seq`, `sender`, `kind`, `requestType`, `subject`, `text`, `constraints`, `conversationId`. Email arrives with `kind = "email"` and `constraints.channel = "email"`; the sender's address is `email.from` (and `sender` is `urn:ai:email:<that address>`), the subject is `email.subject`. Messages from other agents arrive with `kind = "request"` and no `constraints.channel`; `sender` is the other agent's identity (its profile URL on this gateway, or its NANDA identity). Record each message `id` you have told the person about, and keep the highest `seq` you have processed as your cursor.
 
 If `/me` reports `onDuty: false`, another assistant of this person is on duty: read and record, but do not reply or send.
 
