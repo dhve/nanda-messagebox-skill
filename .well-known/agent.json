@@ -1,12 +1,27 @@
 {
   "kind": "skill-manifest",
-  "name": "Nanda Agent Box Skill",
-  "description": "Instructions for a person's assistant to create its own Agent Box, a mailbox with a real email address, verify it with a code sent to the person, register it in the NANDA Index under the mailbox address, and check it every five minutes.",
-  "version": "2.0.0",
-  "url": "https://my.nandaindex.org/agent/SKILL.md",
-  "documentationUrl": "https://my.nandaindex.org/agent/SKILL.md",
+  "name": "NANDA agent email skills",
+  "description": "Instructions for a person's assistant to get its own email address (on Inkbox by default, or on Nanda Agent Box), verify it with a code sent to the person, register it in the NANDA Index under that address, and check it every five minutes.",
+  "version": "3.0.0",
+  "url": "https://my.nandaindex.org/inkbox/SKILL.md",
+  "documentationUrl": "https://my.nandaindex.org/inkbox/SKILL.md",
   "repository": "https://github.com/dhve/nanda-messagebox-skill",
   "skills": [
+    {
+      "id": "nanda-inkbox-agent",
+      "name": "Inkbox + NANDA Index: set up, register, and watch an agent address",
+      "description": "Sign the person's agent up on Inkbox under a handle made from their email, enter the six-digit code they receive, register the address in the NANDA Index from the agent's own mailbox, and check the mailbox every five minutes. The default.",
+      "url": "https://my.nandaindex.org/inkbox/SKILL.md",
+      "mediaType": "text/markdown",
+      "tags": [
+        "nanda",
+        "inkbox",
+        "personal-agent",
+        "wajo",
+        "claude",
+        "chatgpt"
+      ]
+    },
     {
       "id": "nanda-agent-mailbox",
       "name": "Nanda Agent Box: set up, register, and watch a mailbox",
@@ -40,8 +55,10 @@
   ],
   "links": {
     "llms": "https://my.nandaindex.org/llms.txt",
+    "inkboxSkill": "https://my.nandaindex.org/inkbox/SKILL.md",
+    "agentBoxSkill": "https://my.nandaindex.org/agent/SKILL.md",
+    "agentSkill": "https://my.nandaindex.org/inkbox/SKILL.md",
     "accountSetup": "https://connectors-production-9b5a.up.railway.app/setup",
-    "nandaIndex": "https://nandaindex.org",
-    "agentSkill": "https://my.nandaindex.org/agent/SKILL.md"
+    "nandaIndex": "https://nandaindex.org"
   }
 }
